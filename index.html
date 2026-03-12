@@ -163,7 +163,7 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
 .clients-intro{color:#ccc;font-size:18px;line-height:1.7;text-align:center;max-width:520px;margin:0 auto 56px;}
 .cgrid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;}
 .cc-logo{width:100%;height:60px;display:flex;align-items:center;justify-content:flex-start;margin-bottom:16px;}
-.cc-logo img{max-height:52px;max-width:110px;width:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:.75;transition:opacity .3s;}
+.cc-logo img{max-height:52px;max-width:110px;width:auto;object-fit:contain;mix-blend-mode:screen;opacity:.95;transition:opacity .3s;}
 .cc:hover .cc-logo img{opacity:1;}
 .cc{background:rgba(255,255,255,.03);padding:48px 32px;border:1px solid rgba(255,255,255,.08);text-decoration:none;color:var(--white);display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden;transition:background .4s,border-color .3s,transform .3s;cursor:none;min-height:210px;}
 .cc::before{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.23,1,.32,1);}
@@ -211,8 +211,8 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
 .frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 
 /* FOOTER */
-footer{background:var(--gray);padding:80px 64px 40px;border-top:1px solid rgba(255,255,255,.07);position:relative;z-index:100;}
-.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:56px;margin-bottom:56px;}
+footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(255,255,255,.07);position:relative;z-index:100;}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px;}
 .ft-logo{display:flex;align-items:center;gap:13px;margin-bottom:18px;text-decoration:none;color:var(--white);font-size:24px;font-weight:800;}
 .ft-logo img{width:48px;height:48px;border-radius:10px;object-fit:cover;}
 .ft-logo em{color:var(--accent);font-style:normal;}
@@ -221,15 +221,22 @@ footer{background:var(--gray);padding:80px 64px 40px;border-top:1px solid rgba(2
 .ft-links{list-style:none;display:flex;flex-direction:column;gap:11px;}
 .ft-links a{font-size:16px;color:#bbb;text-decoration:none;transition:color .3s;cursor:none;}
 .ft-links a:hover{color:var(--white);}
-.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid rgba(255,255,255,.07);font-size:15px;color:#999;}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);font-size:14px;color:#999;}
 .socials{display:flex;gap:10px;}
 .soc{width:50px;height:50px;border-radius:13px;border:2px solid;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .3s;cursor:none;}
 .soc svg{width:24px;height:24px;fill:currentColor;display:block;}
 .soc:hover{transform:translateY(-3px);}
+.socials-v{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+.socials-v .soc{width:auto;height:40px;border-radius:10px;padding:0 14px;gap:10px;font-size:14px;font-weight:500;justify-content:flex-start;}
+.socials-v .soc span{color:inherit;}
 .s-li{border-color:#0077b5;color:#0077b5;}.s-li:hover{background:#0077b5;color:#fff;}
-.s-ig{border-color:#e1306c;color:#e1306c;}.s-ig:hover{background:#e1306c;color:#fff;}
+.s-ig{border-color:#c13584;color:#c13584;}.s-ig:hover{background:#c13584;color:#fff;}
 .s-fb{border-color:#1877f2;color:#1877f2;}.s-fb:hover{background:#1877f2;color:#fff;}
 .s-tk{border-color:#69c9d0;color:#69c9d0;}.s-tk:hover{background:#69c9d0;color:#fff;}
+.s-wa{border-color:#25D366;color:#25D366;}.s-wa:hover{background:#25D366;color:#fff;}
+.s-em{border-color:#c8f53d;color:#c8f53d;}.s-em:hover{background:#c8f53d;color:#080808;}
+.back-top{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:18px;text-decoration:none;transition:all .3s;cursor:none;}
+.back-top:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);}
 
 /* WA */
 .wa-fixed{position:fixed;bottom:32px;left:32px;z-index:500;display:flex;flex-direction:column;align-items:flex-start;gap:12px;}
@@ -250,6 +257,8 @@ footer{background:var(--gray);padding:80px 64px 40px;border-top:1px solid rgba(2
 
 /* MOBILE */
 @media(max-width:900px){
+  #cur,#cur-f{display:none!important;}
+  body{cursor:auto!important;}
   nav,nav.scrolled{padding:14px 20px;}
   .nav-logo img{width:46px;height:46px;}
   .nav-logo-text{font-size:24px;}
@@ -278,6 +287,13 @@ footer{background:var(--gray);padding:80px 64px 40px;border-top:1px solid rgba(2
   .proc-steps{grid-template-columns:1fr;}
   .ft-top{grid-template-columns:1fr;}
 }
+
+/* SCROLL DOTS */
+#scroll-dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:300;display:flex;flex-direction:column;gap:12px;align-items:center;}
+.sd{width:9px;height:9px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);display:block;transition:all .35s cubic-bezier(.23,1,.32,1);cursor:none;position:relative;}
+.sd:hover{border-color:var(--accent);transform:scale(1.3);}
+.sd.active{background:var(--accent);border-color:var(--accent);width:11px;height:11px;box-shadow:0 0 10px rgba(200,245,61,.5);}
+@media(max-width:900px){#scroll-dots{display:none;}}
 </style>
 </head>
 <body>
@@ -440,7 +456,7 @@ footer{background:var(--gray);padding:80px 64px 40px;border-top:1px solid rgba(2
       <div class="slabel rv">FAQ</div>
       <h2 class="stitle rv d1">Preguntas frecuentes.</h2>
       <p class="rv d2" style="color:#ccc;font-size:18px;line-height:1.75;margin-top:16px;">&iquest;Ten&eacute;s m&aacute;s dudas? Escrib&iacute;nos y te respondemos en menos de 24 horas.</p>
-      <div class="faq-cta rv d3"><a href="#contacto" class="btn btn-acc" style="font-size:19px;padding:19px 52px;"><span>Hacer una consulta</span></a></div>
+      <div class="faq-cta rv d3"><a href="#contacto" class="btn btn-acc btn-blink" style="font-size:19px;padding:19px 52px;"><span>Hacer una consulta</span></a></div>
     </div>
     <div class="faq-list rv d2">
       <div class="fq"><div class="fq-q">&iquest;C&oacute;mo empezamos a trabajar juntos? <span class="fq-tog">+</span></div><div class="fq-a">Complet&aacute;s nuestro formulario de contacto, un asesor te contacta para entender tu negocio y te presentamos una propuesta personalizada.</div></div>
@@ -491,32 +507,54 @@ footer{background:var(--gray);padding:80px 64px 40px;border-top:1px solid rgba(2
 <!-- FOOTER -->
 <footer id="footer">
   <div class="ft-top">
-    <div><a href="#" class="ft-logo"><img src="krea-logo.png" alt="Krea">Krea<em>.</em></a><p class="ft-tag">Agencia Digital de Marketing global, con base en Buenos Aires. SEO, Google Ads, Redes Sociales y Desarrollo Web.</p></div>
-    <div><div class="ft-h">Servicios</div><ul class="ft-links"><li><a href="#">SEO Estrat&eacute;gico</a></li><li><a href="#">Google Ads</a></li><li><a href="#">Redes Sociales</a></li><li><a href="#">Dise&ntilde;o Web</a></li><li><a href="#">E-Commerce</a></li><li><a href="#">Growth Marketing</a></li></ul></div>
-    <div><div class="ft-h">Agencia</div><ul class="ft-links"><li><a href="#">Nosotros</a></li><li><a href="#">Casos de &eacute;xito</a></li><li><a href="#">Blog</a></li><li><a href="#">Proceso</a></li><li><a href="#">Trabaj&aacute; con nosotros</a></li></ul></div>
-    <div><div class="ft-h">Contacto</div><ul class="ft-links"><li><a href="#"><span class="__cf_email__" data-cfemail="f59d9a9994b59e87909492909b968cdb969a98db9487">[email&#160;protected]</span></a></li><li><a href="#">+54 11 5555-0000</a></li><li><a href="#">Buenos Aires, Argentina</a></li></ul></div>
+    <div>
+      <a href="#" class="ft-logo"><img src="krea-logo.png" alt="Krea">Krea<em>.</em></a>
+      <p class="ft-tag">Agencia Digital de Marketing global, con base en Buenos Aires.</p>
+    </div>
+    <div>
+      <div class="ft-h">Nuestras redes</div>
+      <div class="socials-v">
+        <a href="#" class="soc s-li" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a>
+        <a href="#" class="soc s-ig" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>Instagram</span></a>
+        <a href="#" class="soc s-fb" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg><span>Facebook</span></a>
+        <a href="#" class="soc s-tk" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.77a8.16 8.16 0 004.77 1.52V6.84a4.85 4.85 0 01-1-.15z"/></svg><span>TikTok</span></a>
+        <a href="https://wa.me/5491155550000" target="_blank" class="soc s-wa" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
+        <a href="mailto:hola@kreagency.com.ar" class="soc s-em" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Email</span></a>
+      </div>
+    </div>
+    <div>
+      <div class="ft-h">Servicios</div>
+      <ul class="ft-links"><li><a href="#servicios">SEO Estrat&eacute;gico</a></li><li><a href="#servicios">Google Ads</a></li><li><a href="#servicios">Redes Sociales</a></li><li><a href="#servicios">Dise&ntilde;o Web</a></li><li><a href="#servicios">E-Commerce</a></li><li><a href="#servicios">Growth Marketing</a></li></ul>
+    </div>
+    <div>
+      <div class="ft-h">Contacto</div>
+      <ul class="ft-links"><li><a href="mailto:hola@kreagency.com.ar">hola@kreagency.com.ar</a></li><li><a href="https://wa.me/5491155550000">+54 11 5555-0000</a></li><li><a href="#">Buenos Aires, Argentina</a></li></ul>
+    </div>
   </div>
   <div class="ft-bot">
     <span>&copy; 2025 Krea Agencia Digital. Todos los derechos reservados.</span>
-    <div class="socials">
-      <a href="#" class="soc s-li"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href="#" class="soc s-ig"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.5"/></svg></a>
-      <a href="#" class="soc s-fb"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-      <a href="#" class="soc s-tk"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.77a8.16 8.16 0 004.77 1.52V6.84a4.85 4.85 0 01-1-.15z"/></svg></a>
-    </div>
+    <a href="#" id="back-top" class="back-top" title="Volver arriba">&#8593;</a>
   </div>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ── CURSOR ────────────────────────────────────────────────────────────────
 const cur=document.getElementById('cur'),curf=document.getElementById('cur-f');
-let mx=0,my=0,fx=0,fy=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
-(function af(){fx+=(mx-fx)*.12;fy+=(my-fy)*.12;curf.style.left=fx+'px';curf.style.top=fy+'px';requestAnimationFrame(af);})();
-document.querySelectorAll('a,button,.fq,.sc,.cc').forEach(el=>{
-  el.addEventListener('mouseenter',()=>{cur.style.width='20px';cur.style.height='20px';cur.style.background='var(--accent2)';curf.style.width='62px';curf.style.height='62px';curf.style.borderColor='rgba(61,255,160,.55)';});
-  el.addEventListener('mouseleave',()=>{cur.style.width='13px';cur.style.height='13px';cur.style.background='var(--accent)';curf.style.width='44px';curf.style.height='44px';curf.style.borderColor='rgba(200,245,61,.5)';});
-});
+const isTouch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+if(isTouch){
+  // Hide custom cursor on touch devices, restore default cursor
+  cur.style.display='none';curf.style.display='none';
+  document.body.style.cursor='auto';
+  document.querySelectorAll('*').forEach(el=>el.style.cursor='');
+} else {
+  let mx=0,my=0,fx=0,fy=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+  (function af(){fx+=(mx-fx)*.12;fy+=(my-fy)*.12;curf.style.left=fx+'px';curf.style.top=fy+'px';requestAnimationFrame(af);})();
+  document.querySelectorAll('a,button,.fq,.sc,.cc').forEach(el=>{
+    el.addEventListener('mouseenter',()=>{cur.style.width='20px';cur.style.height='20px';cur.style.background='var(--accent2)';curf.style.width='62px';curf.style.height='62px';curf.style.borderColor='rgba(61,255,160,.55)';});
+    el.addEventListener('mouseleave',()=>{cur.style.width='13px';cur.style.height='13px';cur.style.background='var(--accent)';curf.style.width='44px';curf.style.height='44px';curf.style.borderColor='rgba(200,245,61,.5)';});
+  });
+}
 
 // ── HERO CANVAS ───────────────────────────────────────────────────────────
 const hc=document.getElementById('hero-canvas'),hx=hc.getContext('2d');
@@ -819,5 +857,15 @@ document.querySelectorAll('.fq').forEach(fq=>{
 })();
 
 </script>
+
+<!-- SCROLL DOTS -->
+<div id="scroll-dots">
+  <a class="sd" data-sec="hero"    href="#hero"      title="Inicio"></a>
+  <a class="sd" data-sec="servicios" href="#servicios" title="Servicios"></a>
+  <a class="sd" data-sec="proceso" href="#proceso"   title="Proceso"></a>
+  <a class="sd" data-sec="clientes" href="#clientes" title="Clientes"></a>
+  <a class="sd" data-sec="faq"     href="#faq"       title="FAQ"></a>
+  <a class="sd" data-sec="contacto" href="#contacto" title="Contacto"></a>
+</div>
 </body>
 </html>
