@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Krea — Especialistas en Tienda Nube</title>
+<title>Krea — Especialistas en Tiendanube</title>
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,7 +13,7 @@
   --black:#080808;--white:#edecea;--accent:#c8f53d;--accent2:#3dffa0;
   --gray:#121212;--gray2:#1e1e1e;
   --font:'Outfit',sans-serif;
-  --tn:#00d1b2;
+  --tn:#1677ff;
 }
 html{scroll-behavior:smooth;}
 body{background:var(--black);color:var(--white);font-family:var(--font);overflow-x:hidden;cursor:none;font-size:17px;line-height:1.65;}
@@ -42,51 +42,46 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
 .btn-acc:hover{box-shadow:0 0 48px rgba(200,245,61,.45);}
 @keyframes blink-glow{0%,100%{box-shadow:0 0 0 transparent}50%{box-shadow:0 0 36px rgba(200,245,61,.65),0 0 72px rgba(200,245,61,.22);}}
 .btn-blink{animation:blink-glow 2.6s ease-in-out infinite;}
-@keyframes text-blink{0%,100%{opacity:1;color:rgba(200,245,61,.9)}50%{opacity:.6;color:rgba(200,245,61,.5);text-shadow:0 0 20px rgba(200,245,61,.5);}}
-.blink-text{animation:text-blink 2.4s ease-in-out infinite;font-size:17px;font-weight:600;letter-spacing:.02em;}
 .btn-out{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.28);}
 .btn-out:hover{border-color:var(--accent);color:var(--accent);}
 
 /* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:130px 32px 90px;text-align:center;}
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:130px 32px 80px;text-align:center;}
 #hero-canvas{position:absolute;inset:0;z-index:0;width:100%;height:100%;}
 #hero::after{content:'';position:absolute;inset:0;z-index:1;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;}
-.hero-content{position:relative;z-index:2;max-width:960px;}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(200,245,61,.1);border:1px solid rgba(200,245,61,.28);border-radius:100px;padding:8px 22px;font-size:14px;font-weight:500;letter-spacing:.07em;color:var(--accent);text-transform:uppercase;margin-bottom:38px;}
-.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pdot 2s infinite;flex-shrink:0;}
+.hero-content{position:relative;z-index:2;max-width:1000px;}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(22,119,255,.1);border:1px solid rgba(22,119,255,.3);border-radius:100px;padding:8px 22px;font-size:14px;font-weight:500;letter-spacing:.07em;color:#5aadff;text-transform:uppercase;margin-bottom:36px;}
+.hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#5aadff;animation:pdot 2s infinite;flex-shrink:0;}
 @keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
-.hero-title{font-size:clamp(52px,8.5vw,116px);font-weight:800;line-height:.92;letter-spacing:-3px;margin-bottom:30px;}
-.hero-title .line{display:block;overflow:hidden;padding-bottom:0.12em;margin-bottom:-0.12em;}
+.hero-title{font-size:clamp(44px,8vw,110px);font-weight:800;line-height:.93;letter-spacing:-3px;margin-bottom:28px;}
+.hero-title .line{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em;}
 .hero-title .line span{display:inline-block;animation:sup .9s cubic-bezier(.23,1,.32,1) both;}
 .hero-title .line:nth-child(2) span{animation-delay:.1s;}
 .hero-title .line:nth-child(3) span{animation-delay:.2s;}
-.hero-title .line:nth-child(4) span{animation-delay:.3s;}
 @keyframes sup{from{transform:translateY(110%);opacity:0}to{transform:translateY(0);opacity:1}}
-.hero-title .acc{color:var(--accent);font-style:italic;}
-.hero-sub{font-size:20px;font-weight:300;line-height:1.65;color:#bbb;max-width:600px;margin:0 auto 54px;animation:fi 1s .4s both;}
+.acc{color:var(--accent);font-style:italic;}
+.tn-color{color:var(--tn);}
+.hero-sub{font-size:19px;font-weight:300;line-height:1.65;color:#bbb;max-width:580px;margin:0 auto 44px;animation:fi 1s .4s both;}
 @keyframes fi{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
-.hero-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fi 1s .6s both;}
-.hero-stats{display:flex;gap:48px;justify-content:center;margin-top:64px;animation:fi 1s .8s both;}
-.hstat{text-align:center;}
-.hstat-n{font-size:clamp(36px,5vw,58px);font-weight:800;letter-spacing:-2px;color:var(--accent);}
-.hstat-l{font-size:15px;color:#999;margin-top:4px;}
-
-/* TN BADGE */
-.tn-badge{display:inline-flex;align-items:center;gap:10px;background:rgba(0,209,178,.08);border:1px solid rgba(0,209,178,.3);border-radius:12px;padding:10px 20px;margin-top:32px;}
-.tn-badge-dot{width:10px;height:10px;border-radius:50%;background:var(--tn);flex-shrink:0;}
-.tn-badge-text{font-size:14px;font-weight:600;color:var(--tn);letter-spacing:.04em;}
+.hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;animation:fi 1s .6s both;}
+.tn-cert{display:inline-flex;align-items:center;gap:12px;background:rgba(22,119,255,.08);border:1px solid rgba(22,119,255,.22);border-radius:14px;padding:12px 20px;margin-top:36px;animation:fi 1s .8s both;}
+.tn-cert-text .t1{font-size:14px;font-weight:700;color:#5aadff;letter-spacing:.03em;}
+.tn-cert-text .t2{font-size:12px;color:#666;margin-top:2px;}
+.hero-stats{display:flex;gap:44px;justify-content:center;margin-top:48px;flex-wrap:wrap;animation:fi 1s 1s both;}
+.hstat-n{font-size:clamp(30px,4.5vw,50px);font-weight:800;letter-spacing:-2px;color:var(--accent);line-height:1;}
+.hstat-l{font-size:13px;color:#888;margin-top:3px;}
 
 /* MARQUEE */
-.mq-wrap{background:var(--accent);padding:15px 0;overflow:hidden;z-index:10;position:relative;}
+.mq-wrap{background:var(--accent);padding:14px 0;overflow:hidden;z-index:10;position:relative;}
 .mq-track{display:flex;gap:52px;white-space:nowrap;animation:mq 24s linear infinite;width:max-content;}
 .mq-item{font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--black);display:flex;align-items:center;gap:20px;}
 .mq-item::after{content:"◆";font-size:9px;}
 @keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* SECTION UTILS */
-.slabel{font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+/* SECTION */
+.slabel{font-size:15px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
 .slabel::before{content:'';width:28px;height:1px;background:var(--accent);}
-.stitle{font-size:clamp(42px,5.2vw,74px);font-weight:800;line-height:1.02;letter-spacing:-2px;margin-bottom:26px;}
+.stitle{font-size:clamp(36px,4.8vw,68px);font-weight:800;line-height:1.04;letter-spacing:-2px;margin-bottom:22px;}
 
 .sticky-spacer{position:relative;}
 @media(min-width:1024px){
@@ -100,109 +95,116 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
 .s-inner{max-width:1360px;margin:0 auto;width:100%;}
 
 /* SERVICES */
-.srv-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:72px;}
-.srv-right{display:flex;flex-direction:column;gap:28px;}
+.srv-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:64px;}
 .srv-desc{color:#d4d4d4;font-size:18px;line-height:1.75;}
 .srv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.sc{background:var(--gray);padding:48px 38px;position:relative;overflow:hidden;transition:background .4s;cursor:none;}
+.sc{background:var(--gray);padding:44px 36px;position:relative;overflow:hidden;transition:background .4s;cursor:none;}
 .sc:hover{background:var(--gray2);}
 .sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.23,1,.32,1);}
 .sc:hover::after{transform:scaleX(1);}
-.sc-icon{width:44px;height:44px;border-radius:11px;background:rgba(200,245,61,.1);display:flex;align-items:center;justify-content:center;margin-bottom:24px;}
-.sc-num{position:absolute;top:22px;right:28px;font-size:13px;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.22);}
-.sc-name{font-size:21px;font-weight:700;margin-bottom:14px;}
-.sc-desc{font-size:17px;color:#ccc;line-height:1.75;}
-.sc-link{display:inline-flex;align-items:center;gap:8px;margin-top:24px;font-size:15px;font-weight:600;color:var(--accent);text-decoration:none;transition:gap .3s;cursor:none;}
+.sc-icon{width:42px;height:42px;border-radius:11px;background:rgba(200,245,61,.1);display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+.sc-num{position:absolute;top:20px;right:26px;font-size:13px;font-weight:600;letter-spacing:.1em;color:rgba(255,255,255,.2);}
+.sc-name{font-size:20px;font-weight:700;margin-bottom:12px;}
+.sc-desc{font-size:16px;color:#ccc;line-height:1.7;}
+.sc-link{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:15px;font-weight:600;color:var(--accent);text-decoration:none;transition:gap .3s;cursor:none;}
 .sc-link:hover{gap:14px;}
 .sc-link svg{width:15px;height:15px;}
 
-/* PLATAFORMA / INTEGRATIONS */
-.plat-head{text-align:center;max-width:680px;margin:0 auto 72px;}
-.plat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:80px;}
-.app-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:28px 24px;display:flex;flex-direction:column;align-items:center;gap:12px;text-align:center;transition:background .3s,border-color .3s,transform .3s;position:relative;overflow:hidden;cursor:none;}
-.app-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.23,1,.32,1);}
-.app-card:hover{background:rgba(200,245,61,.04);border-color:rgba(200,245,61,.2);transform:translateY(-4px);}
-.app-card:hover::after{transform:scaleX(1);}
-.app-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:var(--black);margin-bottom:4px;}
-.app-name{font-size:15px;font-weight:600;color:var(--white);}
-.app-cat{font-size:13px;color:#888;letter-spacing:.04em;}
-.plat-features{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
-.pf{background:var(--gray2);padding:36px 28px;border-top:2px solid rgba(200,245,61,.15);transition:border-color .3s,background .3s;cursor:none;}
-.pf:hover{background:rgba(200,245,61,.03);border-top-color:var(--accent);}
-.pf-icon{width:40px;height:40px;border-radius:10px;background:rgba(200,245,61,.08);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
-.pf-name{font-size:18px;font-weight:700;margin-bottom:10px;color:var(--white);}
-.pf-desc{font-size:16px;color:#ccc;line-height:1.7;}
+/* PLATFORM */
+.plat-head-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:52px;}
+.plat-desc{color:#ccc;font-size:17px;line-height:1.75;}
+
+/* Stats compactos */
+.tn-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:52px;}
+.tn-stat{background:rgba(22,119,255,.07);border:1px solid rgba(22,119,255,.14);padding:28px 24px;text-align:center;}
+.tn-stat-n{font-size:clamp(36px,4.5vw,58px);font-weight:800;letter-spacing:-2px;color:#5aadff;line-height:1;}
+.tn-stat-l{font-size:14px;color:#aaa;margin-top:6px;line-height:1.4;}
+
+/* App pills */
+.apps-block{margin-bottom:48px;}
+.apps-label{font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.apps-label::before{content:'';width:16px;height:1px;background:#555;}
+.app-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;}
+.app-pill{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;transition:background .3s,border-color .3s,transform .25s;cursor:none;}
+.app-pill:hover{background:rgba(200,245,61,.05);border-color:rgba(200,245,61,.22);transform:translateY(-3px);}
+.app-pill-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0;}
+.app-pill-name{font-size:11px;font-weight:600;color:#ccc;line-height:1.2;}
+
+/* TN nube features */
+.tn-features-wrap{background:linear-gradient(135deg,#0c1530 0%,#081020 60%,#050b18 100%);border-radius:24px;padding:52px 44px;border:1px solid rgba(22,119,255,.18);}
+.tn-features-title{text-align:center;font-size:clamp(22px,2.8vw,34px);font-weight:800;letter-spacing:-1px;margin-bottom:40px;}
+.tn-features-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.tn-card{background:#fff;border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;transition:transform .3s,box-shadow .3s;cursor:none;}
+.tn-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.5);}
+.tn-card-header{display:flex;align-items:center;gap:11px;}
+.tn-icon{width:34px;height:34px;flex-shrink:0;}
+.tn-card-name{font-size:20px;font-weight:600;color:#1a1a1a;line-height:1;}
+.tn-card-name b{color:var(--tn);font-weight:800;}
+.tn-card-desc{font-size:14px;color:#555;line-height:1.65;}
 
 /* PACKS */
-.packs-head{text-align:center;max-width:640px;margin:0 auto 72px;}
+.packs-head{text-align:center;max-width:620px;margin:0 auto 60px;}
 .packs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.pack{background:var(--gray);padding:52px 42px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:28px;transition:background .4s;cursor:none;}
+.pack{background:var(--gray);padding:44px 36px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:22px;transition:background .4s;cursor:none;}
 .pack:hover{background:var(--gray2);}
-.pack.featured{background:rgba(200,245,61,.06);border:1px solid rgba(200,245,61,.22);}
-.pack.featured:hover{background:rgba(200,245,61,.1);}
-.pack-label{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#888;}
-.pack-name{font-size:clamp(28px,3vw,42px);font-weight:800;letter-spacing:-1px;color:var(--white);}
+.pack.featured{background:rgba(200,245,61,.06);border:1px solid rgba(200,245,61,.2);}
+.pack.featured:hover{background:rgba(200,245,61,.09);}
+.pack-label{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#777;}
+.pack-name{font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-1px;color:var(--white);}
 .pack.featured .pack-name{color:var(--accent);}
-.pack-badge{display:inline-flex;align-items:center;gap:6px;background:var(--accent);color:var(--black);border-radius:100px;padding:5px 16px;font-size:13px;font-weight:700;letter-spacing:.04em;width:fit-content;}
-.pack-desc{font-size:17px;color:#bbb;line-height:1.7;}
-.pack-features{list-style:none;display:flex;flex-direction:column;gap:12px;}
-.pack-features li{display:flex;align-items:flex-start;gap:12px;font-size:16px;color:#ddd;line-height:1.5;}
-.pack-features li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;}
+.pack-star{display:inline-flex;background:var(--accent);color:var(--black);border-radius:100px;padding:4px 14px;font-size:12px;font-weight:700;width:fit-content;margin-top:-6px;}
+.pack-desc{font-size:15px;color:#bbb;line-height:1.6;}
+.pack-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.pack-list li{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#ddd;line-height:1.5;}
+.pack-list li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;}
+.pack-note{font-size:13px;color:#555;padding-top:10px;border-top:1px solid rgba(255,255,255,.06);}
 .pack-cta{margin-top:auto;}
-
-/* STATS ROW */
-.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:2px;}
-.stat-box{background:var(--gray);padding:52px 40px;text-align:center;}
-.stat-n{font-size:clamp(52px,6vw,80px);font-weight:800;letter-spacing:-3px;color:var(--accent);line-height:1;}
-.stat-l{font-size:17px;color:#ccc;margin-top:10px;line-height:1.5;}
 
 /* FAQ */
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 .faq-list{display:flex;flex-direction:column;}
-.fq{border-bottom:1px solid rgba(255,255,255,.1);padding:28px 0;cursor:none;}
-.fq-q{display:flex;justify-content:space-between;align-items:center;font-size:18px;font-weight:500;transition:color .3s;gap:16px;}
+.fq{border-bottom:1px solid rgba(255,255,255,.09);padding:24px 0;cursor:none;}
+.fq-q{display:flex;justify-content:space-between;align-items:center;font-size:17px;font-weight:500;transition:color .3s;gap:14px;}
 .fq.open .fq-q{color:var(--accent);}
-.fq-tog{width:30px;height:30px;border-radius:50%;border:1.5px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:18px;}
+.fq-tog{width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s;font-size:17px;}
 .fq.open .fq-tog{border-color:var(--accent);transform:rotate(45deg);background:rgba(200,245,61,.1);}
-.fq-a{font-size:17px;color:#ccc;line-height:1.8;max-height:0;overflow:hidden;transition:max-height .4s,padding .4s;}
-.fq.open .fq-a{max-height:320px;padding-top:14px;}
-.faq-cta{margin-top:52px;display:flex;justify-content:center;}
+.fq-a{font-size:15px;color:#ccc;line-height:1.8;max-height:0;overflow:hidden;transition:max-height .4s,padding .4s;}
+.fq.open .fq-a{max-height:280px;padding-top:12px;}
 
 /* CONTACT */
-#contacto{padding:120px 64px;background:var(--black);position:relative;z-index:50;border-radius:40px 40px 0 0;box-shadow:0 -40px 120px rgba(0,0,0,.95);}
-.cbox{background:linear-gradient(135deg,#0f1a00 0%,#0a1200 55%,#060c00 100%);border:1px solid rgba(200,245,61,.16);border-radius:32px;padding:90px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;position:relative;overflow:hidden;max-width:1360px;margin:0 auto;}
-.cbox::before{content:'';position:absolute;top:-50%;right:-20%;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(200,245,61,.07) 0%,transparent 70%);pointer-events:none;}
-.ctitle{font-size:clamp(36px,4.5vw,60px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:20px;}
-.csub{color:#ccc;font-size:18px;line-height:1.7;}
-.cchecks{margin-top:36px;display:flex;flex-direction:column;gap:15px;}
-.ccheck{display:flex;align-items:center;gap:12px;color:#ddd;font-size:18px;}
+#contacto{padding:100px 64px;background:var(--black);position:relative;z-index:50;border-radius:40px 40px 0 0;box-shadow:0 -40px 120px rgba(0,0,0,.95);}
+.cbox{background:linear-gradient(135deg,#0f1a00 0%,#0a1200 55%,#060c00 100%);border:1px solid rgba(200,245,61,.15);border-radius:28px;padding:72px 60px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;position:relative;overflow:hidden;max-width:1300px;margin:0 auto;}
+.cbox::before{content:'';position:absolute;top:-50%;right:-20%;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(200,245,61,.06) 0%,transparent 70%);pointer-events:none;}
+.ctitle{font-size:clamp(28px,3.8vw,50px);font-weight:800;line-height:1.05;letter-spacing:-1.5px;margin-bottom:14px;}
+.csub{color:#ccc;font-size:16px;line-height:1.7;}
+.cchecks{margin-top:24px;display:flex;flex-direction:column;gap:11px;}
+.ccheck{display:flex;align-items:center;gap:10px;color:#ddd;font-size:15px;}
 .ccheck em{color:var(--accent);font-style:normal;font-weight:700;}
-.cform{display:flex;flex-direction:column;gap:14px;}
-.fg{display:flex;flex-direction:column;gap:7px;}
-.fg label{font-size:14px;letter-spacing:.06em;text-transform:uppercase;color:#c0c0c0;font-weight:600;}
-.fg input,.fg textarea,.fg select{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.13);border-radius:12px;padding:15px 18px;color:var(--white);font-family:var(--font);font-size:17px;transition:border-color .3s,background .3s;outline:none;appearance:none;}
-.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.3);}
-.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(200,245,61,.55);background:rgba(200,245,61,.04);}
-.fg textarea{height:96px;resize:none;}
+.cform{display:flex;flex-direction:column;gap:11px;}
+.fg{display:flex;flex-direction:column;gap:6px;}
+.fg label{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#aaa;font-weight:600;}
+.fg input,.fg textarea,.fg select{background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.12);border-radius:11px;padding:13px 15px;color:var(--white);font-family:var(--font);font-size:16px;transition:border-color .3s,background .3s;outline:none;appearance:none;width:100%;}
+.fg input::placeholder,.fg textarea::placeholder{color:rgba(255,255,255,.28);}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:rgba(200,245,61,.5);background:rgba(200,245,61,.03);}
+.fg textarea{height:84px;resize:none;}
 .fg select option{background:#1a1a1a;color:#eee;}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
 
 /* FOOTER */
 footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(255,255,255,.07);position:relative;z-index:100;}
-.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px;}
-.ft-logo{display:flex;align-items:center;gap:13px;margin-bottom:18px;text-decoration:none;color:var(--white);font-size:24px;font-weight:800;}
-.ft-logo img{width:48px;height:48px;border-radius:10px;object-fit:cover;}
+.ft-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:36px;margin-bottom:30px;}
+.ft-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px;text-decoration:none;color:var(--white);font-size:22px;font-weight:800;}
+.ft-logo img{width:44px;height:44px;border-radius:10px;object-fit:cover;}
 .ft-logo em{color:var(--accent);font-style:normal;}
-.ft-tag{font-size:16px;color:#bbb;line-height:1.65;max-width:260px;}
-.ft-h{font-size:14px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:18px;color:var(--white);}
-.ft-links{list-style:none;display:flex;flex-direction:column;gap:11px;}
-.ft-links a{font-size:16px;color:#bbb;text-decoration:none;transition:color .3s;cursor:none;}
+.ft-tag{font-size:14px;color:#bbb;line-height:1.65;max-width:250px;}
+.ft-h{font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:14px;color:var(--white);}
+.ft-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.ft-links a{font-size:14px;color:#bbb;text-decoration:none;transition:color .3s;cursor:none;}
 .ft-links a:hover{color:var(--white);}
-.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid rgba(255,255,255,.07);font-size:14px;color:#999;}
-.socials-v{display:flex;flex-direction:column;gap:8px;margin-top:4px;}
-.soc{display:flex;height:40px;border-radius:10px;padding:0 14px;gap:10px;font-size:14px;font-weight:500;align-items:center;text-decoration:none;border:2px solid;transition:all .3s;cursor:none;}
-.soc svg{width:20px;height:20px;fill:currentColor;flex-shrink:0;}
-.soc span{color:inherit;}
+.ft-bot{display:flex;justify-content:space-between;align-items:center;padding-top:18px;border-top:1px solid rgba(255,255,255,.07);font-size:13px;color:#888;}
+.socials-v{display:flex;flex-direction:column;gap:7px;margin-top:4px;}
+.soc{display:flex;height:36px;border-radius:8px;padding:0 11px;gap:8px;font-size:13px;font-weight:500;align-items:center;text-decoration:none;border:2px solid;transition:all .3s;cursor:none;}
+.soc svg{width:17px;height:17px;fill:currentColor;flex-shrink:0;}
 .soc:hover{transform:translateY(-2px);}
 .s-li{border-color:#0077b5;color:#0077b5;}.s-li:hover{background:#0077b5;color:#fff;}
 .s-ig{border-color:#c13584;color:#c13584;}.s-ig:hover{background:#c13584;color:#fff;}
@@ -210,64 +212,126 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 .s-tk{border-color:#69c9d0;color:#69c9d0;}.s-tk:hover{background:#69c9d0;color:#fff;}
 .s-wa{border-color:#25D366;color:#25D366;}.s-wa:hover{background:#25D366;color:#fff;}
 .s-em{border-color:#c8f53d;color:#c8f53d;}.s-em:hover{background:#c8f53d;color:#080808;}
-.back-top{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:18px;text-decoration:none;transition:all .3s;cursor:none;}
+.back-top{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(255,255,255,.22);display:flex;align-items:center;justify-content:center;color:var(--white);font-size:17px;text-decoration:none;transition:all .3s;cursor:none;}
 .back-top:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-3px);}
 
-/* WA FLOTANTE */
+/* WA */
 .wa-fixed{position:fixed;bottom:32px;left:32px;z-index:500;display:flex;flex-direction:column;align-items:flex-start;gap:12px;}
-.wa-btn{width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 24px rgba(37,211,102,.45);cursor:none;position:relative;transition:transform .3s,box-shadow .3s;}
+.wa-btn{width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 4px 24px rgba(37,211,102,.45);cursor:none;position:relative;transition:transform .3s,box-shadow .3s;}
 .wa-btn:hover{transform:scale(1.12);box-shadow:0 8px 36px rgba(37,211,102,.65);}
-.wa-btn svg{width:30px;height:30px;fill:white;}
+.wa-btn svg{width:28px;height:28px;fill:white;}
 .wa-btn::before{content:'';position:absolute;inset:-5px;border-radius:50%;border:2px solid rgba(37,211,102,.3);animation:wap 2.5s ease-in-out infinite;}
 @keyframes wap{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.22);opacity:0}}
-.lf{display:inline-flex;align-items:center;background:rgba(8,8,8,.85);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:6px 14px;opacity:0;transform:translateY(14px) scale(.88);transition:opacity .5s,transform .5s;pointer-events:none;}
+.lf{display:inline-flex;align-items:center;gap:9px;background:rgba(8,8,8,.85);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:6px 13px;opacity:0;transform:translateY(14px) scale(.88);transition:opacity .5s,transform .5s;pointer-events:none;}
 .lf.on{opacity:1;transform:none;pointer-events:auto;}
-.lf-text{font-size:20px;font-weight:700;color:var(--white);letter-spacing:-.3px;}
+.lf-text{font-size:18px;font-weight:700;color:var(--white);}
 .lf-text em{color:var(--accent);font-style:normal;}
 
 /* REVEAL */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1);}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.23,1,.32,1),transform .7s cubic-bezier(.23,1,.32,1);}
 .rv.on{opacity:1;transform:none;}
-.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
 
 /* SCROLL DOTS */
-#scroll-dots{position:fixed;right:24px;top:50%;transform:translateY(-50%);z-index:300;display:flex;flex-direction:column;gap:12px;align-items:center;}
-.sd{width:9px;height:9px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);display:block;transition:all .35s cubic-bezier(.23,1,.32,1);cursor:none;position:relative;}
+#scroll-dots{position:fixed;right:22px;top:50%;transform:translateY(-50%);z-index:300;display:flex;flex-direction:column;gap:11px;align-items:center;}
+.sd{width:9px;height:9px;border-radius:50%;border:1.5px solid rgba(255,255,255,.33);display:block;transition:all .35s cubic-bezier(.23,1,.32,1);cursor:none;}
 .sd:hover{border-color:var(--accent);transform:scale(1.3);}
 .sd.active{background:var(--accent);border-color:var(--accent);width:11px;height:11px;box-shadow:0 0 10px rgba(200,245,61,.5);}
 
-/* MOBILE */
+/* ═══════════════════════════════════════════════════
+   MOBILE
+   ═══════════════════════════════════════════════════ */
 @media(max-width:900px){
   #cur,#cur-f{display:none!important;}
   body{cursor:auto!important;}
-  nav,nav.scrolled{padding:14px 20px;}
-  .nav-logo-text{font-size:24px;}
+
+  nav,nav.scrolled{padding:12px 16px;}
+  .nav-logo-text{font-size:22px;}
   .nav-logo{width:auto;}
   .nav-links{display:none;}
-  #hero{padding:100px 20px 70px;}
-  .hero-sub{font-size:18px;}
-  .hero-stats{gap:24px;flex-wrap:wrap;}
-  .ssticky{padding:80px 20px 80px;}
-  .srv-head{grid-template-columns:1fr;gap:32px;}
+  .btn{padding:12px 22px;font-size:15px;}
+
+  #hero{padding:88px 16px 56px;}
+  .hero-title{font-size:clamp(34px,11vw,54px);letter-spacing:-2px;}
+  .hero-sub{font-size:16px;margin-bottom:28px;}
+  .hero-ctas{gap:10px;}
+  .hero-ctas .btn{flex:1;min-width:140px;}
+  .hero-stats{gap:16px;margin-top:32px;}
+  .hstat-n{font-size:32px;}
+  .hstat-l{font-size:12px;}
+  .tn-cert{padding:10px 14px;gap:10px;}
+
+  .ssticky{padding:56px 16px 68px;}
+  #plataforma,#faq{border-radius:0!important;box-shadow:none!important;}
+
+  /* SERVICES */
+  .srv-head{grid-template-columns:1fr;gap:20px;margin-bottom:36px;}
   .srv-grid{grid-template-columns:1fr;}
-  .plat-grid{grid-template-columns:repeat(2,1fr);}
-  .plat-features{grid-template-columns:1fr 1fr;}
+  .sc{padding:30px 20px;}
+  .sc-icon{width:38px;height:38px;margin-bottom:18px;}
+  .sc-name{font-size:18px;}
+
+  /* PLATFORM */
+  .plat-head-grid{grid-template-columns:1fr;gap:16px;margin-bottom:36px;}
+  /* Stats: 3 cols but compact */
+  .tn-stats{grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:36px;}
+  .tn-stat{padding:16px 8px;}
+  .tn-stat-n{font-size:26px;letter-spacing:-1px;}
+  .tn-stat-l{font-size:10px;margin-top:4px;}
+  /* Apps: 3 cols on mobile */
+  .apps-block{margin-bottom:28px;}
+  .app-grid{grid-template-columns:repeat(3,1fr);gap:5px;}
+  .app-pill{padding:10px 5px;border-radius:8px;}
+  .app-pill-icon{width:30px;height:30px;border-radius:7px;font-size:10px;}
+  .app-pill-name{font-size:10px;}
+  /* TN cards: 1 col */
+  .tn-features-wrap{padding:28px 16px;border-radius:16px;}
+  .tn-features-title{font-size:18px;margin-bottom:22px;}
+  .tn-features-grid{grid-template-columns:1fr;gap:12px;}
+  .tn-card{padding:20px 16px;gap:10px;border-radius:12px;}
+  .tn-card-name{font-size:17px;}
+  .tn-card-desc{font-size:13px;}
+
+  /* PACKS */
+  .packs-head{margin-bottom:32px;}
   .packs-grid{grid-template-columns:1fr;}
-  .stats-row{grid-template-columns:1fr;}
-  .faq-grid{grid-template-columns:1fr;gap:40px;}
-  #contacto{padding:70px 20px;}
-  .cbox{grid-template-columns:1fr;padding:48px 24px;gap:40px;}
+  .pack{padding:32px 20px;}
+  .pack-name{font-size:28px;}
+
+  /* FAQ */
+  .faq-grid{grid-template-columns:1fr;gap:28px;}
+  .fq{padding:20px 0;}
+  .fq-q{font-size:15px;}
+
+  /* CONTACT — no overflow */
+  #contacto{padding:48px 14px 56px;border-radius:0;}
+  .cbox{grid-template-columns:1fr;padding:32px 18px;gap:28px;border-radius:18px;}
+  .ctitle{font-size:26px;letter-spacing:-1px;}
+  .csub{font-size:14px;}
+  .cchecks{margin-top:18px;gap:9px;}
+  .ccheck{font-size:13px;}
+  .cform{gap:10px;}
   .frow{grid-template-columns:1fr;}
-  footer{padding:60px 20px 32px;}
-  .ft-top{grid-template-columns:1fr 1fr;gap:30px;}
-  .wa-fixed{bottom:20px;left:20px;}
-  #plataforma,#faq{background:var(--gray);border-radius:0!important;box-shadow:none!important;}
+  .fg input,.fg textarea,.fg select{font-size:15px;padding:12px 13px;}
+  .fg textarea{height:76px;}
+  .fg label{font-size:12px;}
+
+  /* FOOTER */
+  footer{padding:40px 16px 22px;}
+  .ft-top{grid-template-columns:1fr 1fr;gap:22px;}
+  .ft-logo{font-size:19px;}
+  .ft-logo img{width:36px;height:36px;}
+
+  /* WA */
+  .wa-fixed{bottom:14px;left:14px;}
+  .wa-btn{width:48px;height:48px;}
+
   #scroll-dots{display:none;}
 }
-@media(max-width:500px){
-  .hero-title{font-size:clamp(40px,13vw,62px);letter-spacing:-2px;}
-  .plat-grid{grid-template-columns:1fr 1fr;}
-  .plat-features{grid-template-columns:1fr;}
+@media(max-width:480px){
+  .hero-title{font-size:clamp(30px,12vw,44px);letter-spacing:-1.5px;}
+  .tn-stats{gap:1px;}
+  .tn-stat-n{font-size:22px;}
   .ft-top{grid-template-columns:1fr;}
 }
 </style>
@@ -277,7 +341,7 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 <!-- WA FLOTANTE -->
 <div class="wa-fixed">
   <div class="lf" id="lf">
-    <img src="krea-logo.png" alt="Krea" style="width:38px;height:38px;border-radius:8px;object-fit:cover;flex-shrink:0;">
+    <img src="krea-logo.png" alt="Krea" style="width:32px;height:32px;border-radius:7px;object-fit:cover;flex-shrink:0;">
     <div class="lf-text">Krea<em> .</em></div>
   </div>
   <a href="https://wa.me/5491178294001" target="_blank" class="wa-btn" title="WhatsApp">
@@ -290,7 +354,7 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 <!-- NAV -->
 <nav id="nav">
   <a href="index.html" class="nav-logo">
-    <img src="krea-logo.png" alt="Krea" style="width:46px;height:46px;border-radius:10px;object-fit:cover;flex-shrink:0;">
+    <img src="krea-logo.png" alt="Krea" style="width:44px;height:44px;border-radius:10px;object-fit:cover;flex-shrink:0;">
     <span class="nav-logo-text" id="nav-text">Krea<em> .</em></span>
   </a>
   <ul class="nav-links">
@@ -306,26 +370,37 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 <section id="hero">
   <canvas id="hero-canvas"></canvas>
   <div class="hero-content">
-    <div class="hero-badge">Partner Especialista &middot; Tienda Nube</div>
+    <div class="hero-badge">Agencia Especialista &middot; E-Commerce</div>
     <h1 class="hero-title">
-      <span class="line"><span>Tu tienda</span></span>
-      <span class="line"><span>online en</span></span>
-      <span class="line"><span><em class="acc">Tienda Nube</em></span></span>
+      <span class="line"><span>Tu tienda en</span></span>
+      <span class="line"><span><em class="tn-color">Tiendanube</em> <em class="acc">+ Krea</em></span></span>
       <span class="line"><span>lista para vender.</span></span>
     </h1>
-    <p class="hero-sub">En Krea dise&ntilde;amos, configuramos y lanzamos tu tienda online en la plataforma de e-commerce m&aacute;s elegida de Latinoam&eacute;rica. Estrategia, dise&ntilde;o y crecimiento en un solo lugar.</p>
+    <p class="hero-sub">Dise&ntilde;amos, configuramos y lanzamos tu tienda en la plataforma de e-commerce m&aacute;s elegida de Latinoam&eacute;rica. Estrategia, dise&ntilde;o y crecimiento en un solo lugar.</p>
     <div class="hero-ctas">
       <a href="#contacto" class="btn btn-acc"><span>Quiero mi tienda &rarr;</span></a>
-      <a href="#packs" class="btn btn-out"><span>Ver packs & precios</span></a>
+      <a href="#packs" class="btn btn-out"><span>Ver packs</span></a>
     </div>
-    <div class="tn-badge">
-      <div class="tn-badge-dot"></div>
-      <span class="tn-badge-text">Agencia certificada por Tienda Nube</span>
+    <!-- Certified badge -->
+    <div class="tn-cert">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" rx="7" fill="rgba(22,119,255,0.15)"/>
+        <!-- Cloud shape -->
+        <path d="M24 14.5a8 8 0 00-15.5-2.5A5.5 5.5 0 007 22.5h17a4.5 4.5 0 00.5-8.4A8.1 8.1 0 0024 14.5z" fill="#1677ff" opacity=".75"/>
+        <!-- Store front -->
+        <rect x="12" y="17" width="8" height="6" rx="1" fill="white" opacity=".95"/>
+        <rect x="14.5" y="19" width="3" height="4" rx=".5" fill="#1677ff" opacity=".8"/>
+        <path d="M11 17l5-4 5 4" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="tn-cert-text">
+        <div class="t1">Agencia Certificada Tiendanube</div>
+        <div class="t2">Partner oficial &middot; Especialistas en e-commerce</div>
+      </div>
     </div>
     <div class="hero-stats">
       <div class="hstat"><div class="hstat-n">+50</div><div class="hstat-l">Tiendas lanzadas</div></div>
-      <div class="hstat"><div class="hstat-n">+65</div><div class="hstat-l">Plantillas disponibles</div></div>
-      <div class="hstat"><div class="hstat-n">+350</div><div class="hstat-l">Apps integradas</div></div>
+      <div class="hstat"><div class="hstat-n">+170k</div><div class="hstat-l">Marcas en la plataforma</div></div>
+      <div class="hstat"><div class="hstat-n">+350</div><div class="hstat-l">Apps disponibles</div></div>
     </div>
   </div>
 </section>
@@ -333,7 +408,7 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 <!-- MARQUEE -->
 <div class="mq-wrap">
   <div class="mq-track">
-    <span class="mq-item">Dise&ntilde;o de Tiendas</span><span class="mq-item">Puesta en Marcha</span><span class="mq-item">Carga de Productos</span><span class="mq-item">Mercado Pago</span><span class="mq-item">Andreani</span><span class="mq-item">Google Shopping</span><span class="mq-item">Meta Ads</span><span class="mq-item">WhatsApp Ventas</span><span class="mq-item">Email Marketing</span><span class="mq-item">Dise&ntilde;o de Tiendas</span><span class="mq-item">Puesta en Marcha</span><span class="mq-item">Carga de Productos</span><span class="mq-item">Mercado Pago</span><span class="mq-item">Andreani</span><span class="mq-item">Google Shopping</span><span class="mq-item">Meta Ads</span><span class="mq-item">WhatsApp Ventas</span><span class="mq-item">Email Marketing</span>
+    <span class="mq-item">Dise&ntilde;o de Tiendas</span><span class="mq-item">Puesta en Marcha</span><span class="mq-item">Carga de Productos</span><span class="mq-item">Mercado Pago</span><span class="mq-item">Google Shopping</span><span class="mq-item">Meta Ads</span><span class="mq-item">Andreani</span><span class="mq-item">WhatsApp Ventas</span><span class="mq-item">Email Marketing</span><span class="mq-item">Dise&ntilde;o de Tiendas</span><span class="mq-item">Puesta en Marcha</span><span class="mq-item">Carga de Productos</span><span class="mq-item">Mercado Pago</span><span class="mq-item">Google Shopping</span><span class="mq-item">Meta Ads</span><span class="mq-item">Andreani</span><span class="mq-item">WhatsApp Ventas</span><span class="mq-item">Email Marketing</span>
   </div>
 </div>
 
@@ -344,63 +419,17 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   <div class="srv-head">
     <div>
       <div class="slabel rv">Nuestros servicios</div>
-      <h2 class="stitle rv d1">Todo lo que necesit&aacute;s para vender online.</h2>
+      <h2 class="stitle rv d1">Todo lo que necesit&aacute;s<br>para vender online.</h2>
     </div>
-    <div class="srv-right">
-      <p class="srv-desc rv d1">Nos encargamos de todo el proceso de creaci&oacute;n e implementaci&oacute;n de tu tienda Tienda Nube. Vos te enfoc&aacute;s en tu negocio, nosotros en la tecnolog&iacute;a.</p>
-      <p class="srv-desc rv d2">Combinamos dise&ntilde;o estrat&eacute;gico, configuraci&oacute;n integral y soporte personalizado para que tu tienda est&eacute; lista para vender desde el d&iacute;a uno.</p>
-    </div>
+    <p class="srv-desc rv d2" style="margin-top:8px;">Nos encargamos de todo el proceso: dise&ntilde;o, configuraci&oacute;n y marketing. Vos te enfoc&aacute;s en tu negocio, nosotros en que venda.</p>
   </div>
   <div class="srv-grid">
-
-    <div class="sc rv">
-      <span class="sc-num">01</span>
-      <div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-      <div class="sc-name">Dise&ntilde;o de Tiendas</div>
-      <p class="sc-desc">Personalizamos la plantilla ideal para tu marca. Dise&ntilde;o profesional, moderno y optimizado para convertir visitas en ventas desde el primer d&iacute;a.</p>
-      <a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="sc rv d1">
-      <span class="sc-num">02</span>
-      <div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-      <div class="sc-name">Puesta en Marcha</div>
-      <p class="sc-desc">Configuramos medios de pago, opciones de env&iacute;o, dominio propio y todas las herramientas necesarias para que tu tienda est&eacute; operativa al 100%.</p>
-      <a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="sc rv d2">
-      <span class="sc-num">03</span>
-      <div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div>
-      <div class="sc-name">Carga de Productos</div>
-      <p class="sc-desc">Cargamos tu cat&aacute;logo completo con fotos, descripciones optimizadas para SEO, variantes, precios y stock. Tu tienda lista para vender desde el lanzamiento.</p>
-      <a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="sc rv d1">
-      <span class="sc-num">04</span>
-      <div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-      <div class="sc-name">Google Ads & Shopping</div>
-      <p class="sc-desc">Creamos y gestionamos campa&ntilde;as de Google Shopping y Performance Max para llevar compradores activos directamente a tu tienda y multiplicar las ventas.</p>
-      <a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="sc rv d2">
-      <span class="sc-num">05</span>
-      <div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div>
-      <div class="sc-name">Meta Ads & Social</div>
-      <p class="sc-desc">Gestionamos tus campa&ntilde;as en Facebook e Instagram con cat&aacute;logo de productos, retargeting y estrategia de contenidos para generar ventas constantes.</p>
-      <a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
-    <div class="sc rv d3">
-      <span class="sc-num">06</span>
-      <div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
-      <div class="sc-name">Asesoramiento & Capacitaci&oacute;n</div>
-      <p class="sc-desc">Te ense&ntilde;amos a administrar tu tienda de forma aut&oacute;noma. Soporte continuo, capacitaci&oacute;n personalizada y gu&iacute;a estrat&eacute;gica para que crezcas sin depender de nadie.</p>
-      <a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </div>
-
+    <div class="sc rv"><span class="sc-num">01</span><div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div><div class="sc-name">Dise&ntilde;o de Tiendas</div><p class="sc-desc">Personalizamos la plantilla ideal para tu marca. Dise&ntilde;o profesional y optimizado para convertir visitas en ventas desde el primer d&iacute;a.</p><a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="sc rv d1"><span class="sc-num">02</span><div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div><div class="sc-name">Puesta en Marcha</div><p class="sc-desc">Configuramos medios de pago, env&iacute;os, dominio propio y todas las herramientas necesarias para que tu tienda est&eacute; operativa al 100%.</p><a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="sc rv d2"><span class="sc-num">03</span><div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg></div><div class="sc-name">Carga de Productos</div><p class="sc-desc">Cargamos tu cat&aacute;logo completo con fotos, descripciones SEO, variantes, precios y stock. Listo para vender desde el lanzamiento.</p><a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="sc rv d1"><span class="sc-num">04</span><div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="sc-name">Google Ads & Shopping</div><p class="sc-desc">Campa&ntilde;as de Google Shopping y Performance Max para llevar compradores activos directamente a tu tienda y multiplicar ventas.</p><a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="sc rv d2"><span class="sc-num">05</span><div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></div><div class="sc-name">Meta Ads & Social</div><p class="sc-desc">Campa&ntilde;as en Facebook e Instagram con cat&aacute;logo dinámico, retargeting y estrategia de contenidos para generar ventas constantes.</p><a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
+    <div class="sc rv d3"><span class="sc-num">06</span><div class="sc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="sc-name">Asesoramiento & Capacitaci&oacute;n</div><p class="sc-desc">Te capacitamos para administrar tu tienda de forma aut&oacute;noma. Soporte continuo y gu&iacute;a estrat&eacute;gica incluida en todos los packs.</p><a href="#contacto" class="sc-link">Consultar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a></div>
   </div>
 </div>
 </section>
@@ -410,86 +439,105 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 <div class="sticky-spacer">
 <section id="plataforma" class="ssticky">
 <div class="s-inner">
-  <div class="plat-head">
-    <div class="slabel rv" style="justify-content:center">El ecosistema Tienda Nube</div>
-    <h2 class="stitle rv d1">Integramos tu tienda con<br>las mejores aplicaciones.</h2>
-    <p class="rv d2" style="color:#ccc;font-size:18px;line-height:1.7;margin-top:14px;">Pagos, env&iacute;os, marketing y m&aacute;s de 350 apps para potenciar cada aspecto de tu negocio online.</p>
+
+  <div class="plat-head-grid">
+    <div>
+      <div class="slabel rv">El ecosistema Tiendanube</div>
+      <h2 class="stitle rv d1">La plataforma m&aacute;s elegida de Latinoam&eacute;rica.</h2>
+    </div>
+    <p class="plat-desc rv d2" style="margin-top:8px;">Una tienda online con todas las soluciones que necesit&aacute;s para crecer. Pagos, env&iacute;os y marketing. Sincroniz&aacute; tu cat&aacute;logo en WhatsApp, Google Shopping y Marketplaces, todo en un solo lugar.</p>
   </div>
 
   <!-- STATS -->
-  <div class="stats-row rv">
-    <div class="stat-box"><div class="stat-n">+170k</div><div class="stat-l">Marcas que ya eligen<br>Tienda Nube en Latinoam&eacute;rica</div></div>
-    <div class="stat-box"><div class="stat-n">+350</div><div class="stat-l">Aplicaciones disponibles<br>para tu tienda</div></div>
-    <div class="stat-box"><div class="stat-n">+65</div><div class="stat-l">Plantillas de dise&ntilde;o<br>profesionales</div></div>
+  <div class="tn-stats rv d1">
+    <div class="tn-stat"><div class="tn-stat-n">+170k</div><div class="tn-stat-l">Marcas en la plataforma</div></div>
+    <div class="tn-stat"><div class="tn-stat-n">+350</div><div class="tn-stat-l">Apps disponibles</div></div>
+    <div class="tn-stat"><div class="tn-stat-n">+65</div><div class="tn-stat-l">Plantillas de dise&ntilde;o</div></div>
   </div>
 
-  <!-- APP GRID -->
-  <div class="plat-grid rv d1" style="margin-top:2px;">
-
-    <div class="app-card">
-      <div class="app-icon" style="background:#009ee3;">MP</div>
-      <div class="app-name">Mercado Pago</div>
-      <div class="app-cat">Pagos</div>
+  <!-- PAGOS -->
+  <div class="apps-block rv d1">
+    <div class="apps-label">Medios de pago</div>
+    <div class="app-grid">
+      <div class="app-pill"><div class="app-pill-icon" style="background:#009ee3;">MP</div><div class="app-pill-name">Mercado Pago</div></div>
+      <div class="app-pill"><div class="app-pill-icon" style="background:#6919ff;">Mo</div><div class="app-pill-name">Modo</div></div>
+      <div class="app-pill"><div class="app-pill-icon" style="background:#00c16e;">Ü</div><div class="app-pill-name">Uala</div></div>
+      <div class="app-pill"><div class="app-pill-icon" style="background:#e8332e;">GC</div><div class="app-pill-name">Go Cuotas</div></div>
+      <div class="app-pill"><div class="app-pill-icon" style="background:#005bb5;">Gn</div><div class="app-pill-name">Getnet</div></div>
+      <div class="app-pill"><div class="app-pill-icon" style="background:#222;">Na</div><div class="app-pill-name">Nave</div></div>
     </div>
-    <div class="app-card">
-      <div class="app-icon" style="background:#6919ff;">Mo</div>
-      <div class="app-name">Modo</div>
-      <div class="app-cat">Pagos</div>
-    </div>
-    <div class="app-card">
-      <div class="app-icon" style="background:#00c16e;">Ü</div>
-      <div class="app-name">Uala</div>
-      <div class="app-cat">Pagos</div>
-    </div>
-    <div class="app-card">
-      <div class="app-icon" style="background:#e8332e;">GC</div>
-      <div class="app-name">Go Cuotas</div>
-      <div class="app-cat">Financiaci&oacute;n</div>
-    </div>
-    <div class="app-card">
-      <div class="app-icon" style="background:#003da5;">And</div>
-      <div class="app-name">Andreani</div>
-      <div class="app-cat">Env&iacute;os</div>
-    </div>
-    <div class="app-card">
-      <div class="app-icon" style="background:#ffcc00;color:#222;">CA</div>
-      <div class="app-name">Correo Argentino</div>
-      <div class="app-cat">Env&iacute;os</div>
-    </div>
-    <div class="app-card">
-      <div class="app-icon" style="background:#00539b;">OCA</div>
-      <div class="app-name">OCA</div>
-      <div class="app-cat">Env&iacute;os</div>
-    </div>
-    <div class="app-card">
-      <div class="app-icon" style="background:#ff6b35;">EP</div>
-      <div class="app-name">Envio Pack</div>
-      <div class="app-cat">Env&iacute;os</div>
-    </div>
-
   </div>
 
-  <!-- FEATURES NUBE -->
-  <div class="plat-features rv d2">
-    <div class="pf">
-      <div class="pf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M20 12V6H4v12h8"/><path d="M16 19l2 2 4-4"/></svg></div>
-      <div class="pf-name">Pago Nube</div>
-      <div class="pf-desc">Cob&aacute; tus ventas con el respaldo de Tienda Nube y ahorra el costo por transacci&oacute;n en tu plan.</div>
+  <!-- LOGÍSTICA -->
+  <div class="apps-block rv d2">
+    <div class="apps-label">Log&iacute;stica & Env&iacute;os</div>
+    <div class="app-grid">
+      <div class="app-pill"><div class="app-pill-icon" style="background:#003da5;">And</div><div class="app-pill-name">Andreani</div></div>
+      <div class="app-pill"><div class="app-pill-icon" style="background:#ffcc00;color:#222;">CA</div><div class="app-pill-name">Correo Arg.</div></div>
+      <div class="app-pill"><div class="app-pill-icon" style="background:#00539b;">OCA</div><div class="app-pill-name">OCA</div></div>
+      <div class="app-pill"><div class="app-pill-icon" style="background:#ff6b35;">EP</div><div class="app-pill-name">Envio Pack</div></div>
+      <div class="app-pill"><div class="app-pill-icon" style="background:#7c3aed;">SN</div><div class="app-pill-name">Shipnow</div></div>
+      <div class="app-pill"><div class="app-pill-icon" style="background:#0ea5e9;">Zn</div><div class="app-pill-name">Zipnova</div></div>
     </div>
-    <div class="pf">
-      <div class="pf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.07 1.18 2 2 0 012.03 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg></div>
-      <div class="pf-name">Chat Nube</div>
-      <div class="pf-desc">Automatiz&aacute; tu atenci&oacute;n al cliente en WhatsApp y vend&eacute; m&aacute;s con un asistente impulsado por IA.</div>
-    </div>
-    <div class="pf">
-      <div class="pf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-      <div class="pf-name">Marketing Nube</div>
-      <div class="pf-desc">Atra&eacute;, conect&aacute; y fideliz&aacute; a tus clientes con mensajes automatizados y personalizados.</div>
-    </div>
-    <div class="pf">
-      <div class="pf-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8f53d" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-      <div class="pf-name">Env&iacute;o Nube</div>
-      <div class="pf-desc">Tarifas m&aacute;s econ&oacute;micas y proceso de entregas simplificado para que cada pedido llegue a tiempo.</div>
+  </div>
+
+  <!-- TN NUBE FEATURES — tarjetas blancas estilo screenshot -->
+  <div class="tn-features-wrap rv d2">
+    <div class="tn-features-title">Integraciones exclusivas del ecosistema <span style="color:#5aadff;">Tiendanube</span></div>
+    <div class="tn-features-grid">
+
+      <div class="tn-card">
+        <div class="tn-card-header">
+          <!-- Pagonube icon: cloud + $ -->
+          <svg class="tn-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="8" fill="#dbeafe"/>
+            <path d="M27 15a9 9 0 00-17.5-2.8A6 6 0 008 25h20a5 5 0 00.5-9.9A9.1 9.1 0 0027 15z" fill="#1677ff" opacity=".7"/>
+            <text x="18" y="22" text-anchor="middle" fill="white" font-family="Outfit,sans-serif" font-size="11" font-weight="800">$</text>
+          </svg>
+          <div class="tn-card-name">pago<b>nube</b></div>
+        </div>
+        <div class="tn-card-desc">Cob&aacute; tus ventas con el respaldo y seguridad de Tiendanube y ahorr&aacute; el costo por transacci&oacute;n.</div>
+      </div>
+
+      <div class="tn-card">
+        <div class="tn-card-header">
+          <!-- Envionube icon: cloud + truck arrow -->
+          <svg class="tn-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="8" fill="#dbeafe"/>
+            <path d="M27 15a9 9 0 00-17.5-2.8A6 6 0 008 25h20a5 5 0 00.5-9.9A9.1 9.1 0 0027 15z" fill="#1677ff" opacity=".7"/>
+            <path d="M12 22l4-3.5 4 3.5 4.5-4.5" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="tn-card-name">env&iacute;o<b>nube</b></div>
+        </div>
+        <div class="tn-card-desc">Una soluci&oacute;n de env&iacute;os que ofrece tarifas m&aacute;s econ&oacute;micas y simplifica el proceso de entregas.</div>
+      </div>
+
+      <div class="tn-card">
+        <div class="tn-card-header">
+          <!-- Marketingnube icon: cloud + chart -->
+          <svg class="tn-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="8" fill="#dbeafe"/>
+            <path d="M27 15a9 9 0 00-17.5-2.8A6 6 0 008 25h20a5 5 0 00.5-9.9A9.1 9.1 0 0027 15z" fill="#1677ff" opacity=".7"/>
+            <path d="M12 23l3.5-4 3 2.5 3.5-5 3 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="tn-card-name">marketing<b>nube</b></div>
+        </div>
+        <div class="tn-card-desc">Atra&eacute;, conect&aacute; y fideliz&aacute; a tus clientes con mensajes automatizados y personalizados.</div>
+      </div>
+
+      <div class="tn-card">
+        <div class="tn-card-header">
+          <!-- Chatnube icon: cloud + chat bubble -->
+          <svg class="tn-icon" width="36" height="36" viewBox="0 0 36 36" fill="none">
+            <rect width="36" height="36" rx="8" fill="#dbeafe"/>
+            <path d="M27 15a9 9 0 00-17.5-2.8A6 6 0 008 25h20a5 5 0 00.5-9.9A9.1 9.1 0 0027 15z" fill="#1677ff" opacity=".7"/>
+            <path d="M13 21h10M13 24h6" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <div class="tn-card-name">chat<b>nube</b></div>
+        </div>
+        <div class="tn-card-desc">Automatiz&aacute; tu atenci&oacute;n al cliente en WhatsApp y vend&eacute; m&aacute;s con un asistente impulsado por IA.</div>
+      </div>
+
     </div>
   </div>
 
@@ -497,86 +545,64 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 </section>
 </div>
 
-<!-- PACKS & PRECIOS -->
+<!-- PACKS -->
 <div class="sticky-spacer">
 <section id="packs" class="ssticky">
 <div class="s-inner">
   <div class="packs-head">
     <div class="slabel rv" style="justify-content:center">Packs & Precios</div>
     <h2 class="stitle rv d1">Eleg&iacute; el plan ideal<br>para tu negocio.</h2>
-    <p class="rv d2" style="color:#ccc;font-size:18px;line-height:1.7;margin-top:14px;">Sin contratos de permanencia. Un pago &uacute;nico y tu tienda lista para vender. Consultanos el precio y te armamos una propuesta a medida.</p>
+    <p class="rv d2" style="color:#ccc;font-size:16px;line-height:1.7;margin-top:10px;">Sin contratos de permanencia. Pago &uacute;nico y tu tienda lista para vender.</p>
   </div>
-
   <div class="packs-grid rv d1">
 
-    <!-- EMPRENDEDOR -->
     <div class="pack">
-      <div>
-        <div class="pack-label">Pack para</div>
-        <div class="pack-name">Emprendedor</div>
-      </div>
-      <p class="pack-desc">Para emprendimientos personales que quieren iniciar en la venta online con una tienda profesional y lista para crecer.</p>
-      <ul class="pack-features">
+      <div><div class="pack-label">Pack para</div><div class="pack-name">Emprendedor</div></div>
+      <p class="pack-desc">Para emprendimientos que quieren iniciar en la venta online con una tienda profesional.</p>
+      <ul class="pack-list">
         <li>Selecci&oacute;n de plantilla adecuada</li>
         <li>Dise&ntilde;o b&aacute;sico personalizado</li>
         <li>Carga inicial de productos</li>
         <li>Configuraci&oacute;n de medios de pago</li>
         <li>Configuraci&oacute;n de env&iacute;os</li>
         <li>Asesoramiento general</li>
-        <li>Tiempo de entrega: 10 a 15 d&iacute;as</li>
       </ul>
-      <div class="pack-cta">
-        <a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Pack%20Emprendedor%20para%20Tienda%20Nube." target="_blank" class="btn btn-out" style="width:100%;font-size:16px;padding:16px 20px;cursor:none;"><span>Consultar precio &rarr;</span></a>
-      </div>
+      <div class="pack-note">&#128337; Entrega: 10 a 15 d&iacute;as</div>
+      <div class="pack-cta"><a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Pack%20Emprendedor%20Tiendanube." target="_blank" class="btn btn-out" style="width:100%;font-size:15px;padding:13px;cursor:none;"><span>Consultar precio &rarr;</span></a></div>
     </div>
 
-    <!-- EMPRESA -->
     <div class="pack featured">
-      <div>
-        <div class="pack-label">Pack para</div>
-        <div class="pack-name">Empresa</div>
-        <div class="pack-badge" style="margin-top:12px;">&#9733; M&aacute;s elegido</div>
-      </div>
-      <p class="pack-desc">Para empresas y pymes que buscan crecer en la venta online con un dise&ntilde;o premium y una configuraci&oacute;n completa.</p>
-      <ul class="pack-features">
+      <div><div class="pack-label">Pack para</div><div class="pack-name">Empresa</div><div class="pack-star">&#9733; M&aacute;s elegido</div></div>
+      <p class="pack-desc">Para empresas y pymes que buscan crecer online con dise&ntilde;o premium y configuraci&oacute;n completa.</p>
+      <ul class="pack-list">
         <li>Dise&ntilde;o con piezas gr&aacute;ficas</li>
         <li>Carga de productos en cantidad</li>
-        <li>Configuraciones m&uacute;ltiples y avanzadas</li>
+        <li>Configuraciones m&uacute;ltiples avanzadas</li>
         <li>Integraci&oacute;n de apps clave</li>
         <li>Google Shopping & Meta pixel</li>
         <li>Asesoramiento personalizado</li>
-        <li>Tiempo de entrega: 35 a 40 d&iacute;as</li>
       </ul>
-      <div class="pack-cta">
-        <a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Pack%20Empresa%20para%20Tienda%20Nube." target="_blank" class="btn btn-acc btn-blink" style="width:100%;font-size:16px;padding:16px 20px;cursor:none;"><span>Consultar precio &rarr;</span></a>
-      </div>
+      <div class="pack-note">&#128337; Entrega: 35 a 40 d&iacute;as</div>
+      <div class="pack-cta"><a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Pack%20Empresa%20Tiendanube." target="_blank" class="btn btn-acc btn-blink" style="width:100%;font-size:15px;padding:13px;cursor:none;"><span>Consultar precio &rarr;</span></a></div>
     </div>
 
-    <!-- EVOLUCIÓN -->
     <div class="pack">
-      <div>
-        <div class="pack-label">Pack para</div>
-        <div class="pack-name">Evoluci&oacute;n</div>
-      </div>
-      <p class="pack-desc">Para grandes empresas con alto volumen de facturaci&oacute;n que necesitan una soluci&oacute;n integral y exclusiva.</p>
-      <ul class="pack-features">
+      <div><div class="pack-label">Pack para</div><div class="pack-name">Evoluci&oacute;n</div></div>
+      <p class="pack-desc">Para grandes empresas con alto volumen que necesitan una soluci&oacute;n integral y exclusiva.</p>
+      <ul class="pack-list">
         <li>Dise&ntilde;o integral premium</li>
         <li>Migraci&oacute;n masiva de productos</li>
         <li>Configuraciones y apps ilimitadas</li>
         <li>Estrategia de marketing incluida</li>
         <li>Campa&ntilde;as Google Ads & Meta Ads</li>
         <li>Asesoramiento exclusivo continuo</li>
-        <li>Tiempo a definir con el cliente</li>
       </ul>
-      <div class="pack-cta">
-        <a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Pack%20Evoluci%C3%B3n%20para%20Tienda%20Nube." target="_blank" class="btn btn-out" style="width:100%;font-size:16px;padding:16px 20px;cursor:none;"><span>Consultar precio &rarr;</span></a>
-      </div>
+      <div class="pack-note">&#128337; Tiempo a definir con el cliente</div>
+      <div class="pack-cta"><a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Pack%20Evoluci%C3%B3n%20Tiendanube." target="_blank" class="btn btn-out" style="width:100%;font-size:15px;padding:13px;cursor:none;"><span>Consultar precio &rarr;</span></a></div>
     </div>
 
   </div>
-
-  <p class="rv d3" style="text-align:center;color:#777;font-size:15px;margin-top:32px;">Todos los packs son pago &uacute;nico. 50% al confirmar — 50% antes de la entrega. &bull; Hacemos factura C. &bull; Sin cargos de mantenimiento.</p>
-
+  <p class="rv d3" style="text-align:center;color:#555;font-size:13px;margin-top:24px;">Todos los packs son pago &uacute;nico &bull; 50% al confirmar — 50% antes de la entrega &bull; Factura C &bull; Sin cargos de mantenimiento</p>
 </div>
 </section>
 </div>
@@ -589,41 +615,16 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
     <div>
       <div class="slabel rv">FAQ</div>
       <h2 class="stitle rv d1">Preguntas frecuentes.</h2>
-      <p class="rv d2" style="color:#ccc;font-size:18px;line-height:1.75;margin-top:16px;">&iquest;Ten&eacute;s m&aacute;s dudas? Escrib&iacute;nos y te respondemos en menos de 24 horas.</p>
-      <div class="faq-cta rv d3"><a href="#contacto" class="btn btn-acc btn-blink" style="font-size:19px;padding:19px 52px;cursor:none;"><span>Hacer una consulta</span></a></div>
+      <p class="rv d2" style="color:#ccc;font-size:17px;line-height:1.75;margin-top:14px;">&iquest;Ten&eacute;s m&aacute;s dudas? Escrib&iacute;nos y te respondemos en menos de 24 horas.</p>
+      <div class="rv d3" style="margin-top:36px;"><a href="#contacto" class="btn btn-acc btn-blink" style="font-size:17px;padding:16px 42px;cursor:none;"><span>Hacer una consulta</span></a></div>
     </div>
     <div class="faq-list rv d2">
-
-      <div class="fq">
-        <div class="fq-q">&iquest;Cu&aacute;l es la forma de pago? <span class="fq-tog">+</span></div>
-        <div class="fq-a">Todos los packs se abonan en dos cuotas: 50% al confirmar el trabajo y 50% antes de la entrega de la tienda completa. La forma de pago es por transferencia o dep&oacute;sito bancario. Hacemos factura C.</div>
-      </div>
-
-      <div class="fq">
-        <div class="fq-q">&iquest;Qu&eacute; incluye el dise&ntilde;o? <span class="fq-tog">+</span></div>
-        <div class="fq-a">Incluye la customizaci&oacute;n de una plantilla de Tienda Nube con los colores, tipograf&iacute;as y contenidos de tu marca. No incluye dise&ntilde;o a medida desde cero (solo la personalizaci&oacute;n de plantillas oficiales).</div>
-      </div>
-
-      <div class="fq">
-        <div class="fq-q">&iquest;Necesito tener Tienda Nube contratado? <span class="fq-tog">+</span></div>
-        <div class="fq-a">Tienda Nube ofrece un plan gratuito para empezar. Para escalar se recomienda contratar uno de sus planes pagos mensuales. Nuestros honorarios son independientes de los aranceles de la plataforma.</div>
-      </div>
-
-      <div class="fq">
-        <div class="fq-q">&iquest;Puedo usar mi dominio propio? <span class="fq-tog">+</span></div>
-        <div class="fq-a">S&iacute;. Podemos vincular cualquier dominio .com.ar, .ar, .net.ar o similar directamente. Para dominios .com se puede usar un servicio de hosting adicional para la vinculaci&oacute;n.</div>
-      </div>
-
-      <div class="fq">
-        <div class="fq-q">&iquest;Van a administrar mi tienda despu&eacute;s del lanzamiento? <span class="fq-tog">+</span></div>
-        <div class="fq-a">Nuestros packs no incluyen administraci&oacute;n continua post-entrega. Sin embargo, te capacitamos para que puedas gestionar tu tienda de forma aut&oacute;noma. Y si quer&eacute;s un servicio de gesti&oacute;n continua, lo cotizamos aparte.</div>
-      </div>
-
-      <div class="fq">
-        <div class="fq-q">&iquest;Ofrecen el servicio de marketing digital tambi&eacute;n? <span class="fq-tog">+</span></div>
-        <div class="fq-a">S&iacute;. Adem&aacute;s de crear tu tienda, gestionamos tus campa&ntilde;as de Google Ads, Meta Ads y Email Marketing para que tu tienda genere ventas constantes. El presupuesto de pauta va directamente a las plataformas y nuestros honorarios se definen por separado.</div>
-      </div>
-
+      <div class="fq"><div class="fq-q">&iquest;Cu&aacute;l es la forma de pago? <span class="fq-tog">+</span></div><div class="fq-a">50% al confirmar el trabajo y 50% antes de la entrega. Por transferencia o dep&oacute;sito bancario. Hacemos factura C. Los costos son precio final.</div></div>
+      <div class="fq"><div class="fq-q">&iquest;Qu&eacute; incluye el dise&ntilde;o? <span class="fq-tog">+</span></div><div class="fq-a">La customizaci&oacute;n profesional de una plantilla de Tiendanube con los colores, tipograf&iacute;as y contenidos de tu marca. No incluye dise&ntilde;o a medida desde cero.</div></div>
+      <div class="fq"><div class="fq-q">&iquest;Necesito tener Tiendanube contratado? <span class="fq-tog">+</span></div><div class="fq-a">Tiendanube ofrece un plan gratuito para empezar. Para escalar se recomienda contratar uno de sus planes mensuales. Nuestros honorarios son independientes.</div></div>
+      <div class="fq"><div class="fq-q">&iquest;Puedo usar mi dominio propio? <span class="fq-tog">+</span></div><div class="fq-a">S&iacute;. Vinculamos dominios .com.ar, .ar, .net.ar directamente a la tienda. Para .com se requiere hosting adicional.</div></div>
+      <div class="fq"><div class="fq-q">&iquest;Me capacitan para administrar la tienda? <span class="fq-tog">+</span></div><div class="fq-a">S&iacute;. Incluimos capacitaci&oacute;n para que puedas gestionar tu tienda de forma aut&oacute;noma. Si necesit&aacute;s gesti&oacute;n continua, lo cotizamos aparte.</div></div>
+      <div class="fq"><div class="fq-q">&iquest;Tambi&eacute;n hacen marketing digital? <span class="fq-tog">+</span></div><div class="fq-a">S&iacute;. Gestionamos campa&ntilde;as de Google Ads, Meta Ads y Email Marketing. El presupuesto de pauta va directo a las plataformas y nuestros honorarios se definen por separado.</div></div>
     </div>
   </div>
 </div>
@@ -637,7 +638,7 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   <div>
     <div class="slabel" style="color:var(--accent)">Contacto</div>
     <h2 class="ctitle">&iquest;Listo para lanzar tu tienda?</h2>
-    <p class="csub">Cont&aacute;nos sobre tu negocio y un especialista de Krea te contactar&aacute; en menos de 24 horas con una propuesta a medida para tu tienda Tienda Nube.</p>
+    <p class="csub">Cont&aacute;nos sobre tu negocio y un especialista de Krea te contactar&aacute; en menos de 24 horas con una propuesta a medida.</p>
     <div class="cchecks">
       <div class="ccheck"><em>&#10003;</em> Diagn&oacute;stico digital gratuito</div>
       <div class="ccheck"><em>&#10003;</em> Propuesta personalizada en 48 hs</div>
@@ -656,18 +657,11 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
         <option>Pack Emprendedor</option>
         <option>Pack Empresa</option>
         <option>Pack Evoluci&oacute;n</option>
-        <option>No s&eacute; cu&aacute;l elegir, necesito asesoramiento</option>
+        <option>No s&eacute; cu&aacute;l, necesito asesoramiento</option>
       </select>
     </div>
-    <div class="fg"><label>Pa&iacute;s</label>
-      <select id="ct-pais">
-        <option value="">Seleccion&aacute; tu pa&iacute;s</option>
-        <optgroup label="Hispanoam&eacute;rica"><option>Argentina</option><option>Bolivia</option><option>Chile</option><option>Colombia</option><option>Costa Rica</option><option>Ecuador</option><option>M&eacute;xico</option><option>Paraguay</option><option>Per&uacute;</option><option>Uruguay</option><option>Venezuela</option></optgroup>
-        <optgroup label="English Speaking"><option>United States</option><option>United Kingdom</option><option>Canada</option><option>Australia</option></optgroup>
-      </select>
-    </div>
-    <div class="fg"><label>Mensaje (opcional)</label><textarea id="ct-mensaje" placeholder="Cont&aacute;nos sobre tu negocio y tu proyecto..."></textarea></div>
-    <button class="btn btn-acc btn-blink" style="width:100%;border:none;font-size:18px;padding:20px;cursor:none;" onclick="sendToWhatsApp()"><span>Enviar consulta &rarr;</span></button>
+    <div class="fg"><label>Mensaje (opcional)</label><textarea id="ct-mensaje" placeholder="Cont&aacute;nos sobre tu negocio..."></textarea></div>
+    <button class="btn btn-acc btn-blink" style="width:100%;border:none;font-size:17px;padding:17px;cursor:none;" onclick="sendToWhatsApp()"><span>Enviar consulta &rarr;</span></button>
   </div>
 </div>
 </section>
@@ -678,17 +672,16 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   <div class="ft-top">
     <div>
       <a href="index.html" class="ft-logo"><img src="krea-logo.png" alt="Krea">Krea<em>.</em></a>
-      <p class="ft-tag">Agencia Digital de Marketing global, con base en Buenos Aires. Especialistas en Tienda Nube.</p>
+      <p class="ft-tag">Agencia Digital de Marketing global, con base en Buenos Aires. Especialistas en Tiendanube.</p>
     </div>
     <div>
       <div class="ft-h">Nuestras redes</div>
       <div class="socials-v">
-        <a href="#" class="soc s-li" title="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a>
-        <a href="https://www.instagram.com/krea.ag" target="_blank" class="soc s-ig" title="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>Instagram</span></a>
-        <a href="#" class="soc s-fb" title="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg><span>Facebook</span></a>
-        <a href="#" class="soc s-tk" title="TikTok"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.77a8.16 8.16 0 004.77 1.52V6.84a4.85 4.85 0 01-1-.15z"/></svg><span>TikTok</span></a>
-        <a href="https://wa.me/5491178294001" target="_blank" class="soc s-wa" title="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
-        <a href="mailto:agenciakrea.contacto@gmail.com" class="soc s-em" title="Email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Email</span></a>
+        <a href="#" class="soc s-li"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a>
+        <a href="https://www.instagram.com/krea.ag" target="_blank" class="soc s-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>Instagram</span></a>
+        <a href="#" class="soc s-fb"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg><span>Facebook</span></a>
+        <a href="https://wa.me/5491178294001" target="_blank" class="soc s-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
+        <a href="mailto:agenciakrea.contacto@gmail.com" class="soc s-em"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Email</span></a>
       </div>
     </div>
     <div>
@@ -709,74 +702,65 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
         <li><a href="https://wa.me/5491178294001">+54 9 11 7829-4001</a></li>
         <li><a href="#">Buenos Aires, Argentina</a></li>
       </ul>
-      <div style="margin-top:24px;">
+      <div style="margin-top:18px;">
         <div class="ft-h">Krea Digital</div>
-        <ul class="ft-links"><li><a href="index.html">&#8592; Volver al sitio principal</a></li></ul>
+        <ul class="ft-links"><li><a href="index.html">&#8592; Sitio principal</a></li></ul>
       </div>
     </div>
   </div>
   <div class="ft-bot">
     <span>&copy; 2025 Krea Agencia Digital. Todos los derechos reservados.</span>
-    <a href="#" id="back-top" class="back-top" title="Volver arriba">&#8593;</a>
+    <a href="#" class="back-top" title="Volver arriba">&#8593;</a>
   </div>
 </footer>
 
-<!-- SCROLL DOTS -->
 <div id="scroll-dots">
-  <a class="sd" data-sec="hero"       href="#hero"       title="Inicio"></a>
-  <a class="sd" data-sec="servicios"  href="#servicios"  title="Servicios"></a>
-  <a class="sd" data-sec="plataforma" href="#plataforma" title="Plataforma"></a>
-  <a class="sd" data-sec="packs"      href="#packs"      title="Packs"></a>
-  <a class="sd" data-sec="faq"        href="#faq"        title="FAQ"></a>
-  <a class="sd" data-sec="contacto"   href="#contacto"   title="Contacto"></a>
+  <a class="sd" href="#hero" title="Inicio"></a>
+  <a class="sd" href="#servicios" title="Servicios"></a>
+  <a class="sd" href="#plataforma" title="Plataforma"></a>
+  <a class="sd" href="#packs" title="Packs"></a>
+  <a class="sd" href="#faq" title="FAQ"></a>
+  <a class="sd" href="#contacto" title="Contacto"></a>
 </div>
 
 <script>
-// ── WHATSAPP FORM ─────────────────────────────────────────────────────────
 function sendToWhatsApp(){
-  var nombre=document.getElementById('ct-nombre').value.trim()||'No especificado';
-  var empresa=document.getElementById('ct-empresa').value.trim()||'No especificada';
-  var pack=document.getElementById('ct-pack').value||'No especificado';
-  var pais=document.getElementById('ct-pais').value||'No especificado';
-  var msg=document.getElementById('ct-mensaje').value.trim();
-  var text='\u00a1Hola! Me contacto desde la p\u00e1gina de Tienda Nube de Krea.\n\n';
-  text+='*Nombre:* '+nombre+'\n';
-  text+='*Empresa:* '+empresa+'\n';
-  text+='*Pack de inter\u00e9s:* '+pack+'\n';
-  text+='*Pa\u00eds:* '+pais+'\n';
-  if(msg)text+='*Consulta:* '+msg+'\n';
-  window.open('https://wa.me/5491178294001?text='+encodeURIComponent(text),'_blank');
+  var n=document.getElementById('ct-nombre').value.trim()||'No especificado';
+  var e=document.getElementById('ct-empresa').value.trim()||'No especificada';
+  var p=document.getElementById('ct-pack').value||'No especificado';
+  var m=document.getElementById('ct-mensaje').value.trim();
+  var t='\u00a1Hola! Me contacto desde la web Tiendanube de Krea.\n\n*Nombre:* '+n+'\n*Empresa:* '+e+'\n*Pack:* '+p+'\n';
+  if(m)t+='*Consulta:* '+m+'\n';
+  window.open('https://wa.me/5491178294001?text='+encodeURIComponent(t),'_blank');
 }
 
-// ── CURSOR ────────────────────────────────────────────────────────────────
+// CURSOR
 const cur=document.getElementById('cur'),curf=document.getElementById('cur-f');
-const isTouch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
-if(isTouch){
-  cur.style.display='none';curf.style.display='none';
-  document.body.style.cursor='auto';
-} else {
+if(('ontouchstart' in window)||navigator.maxTouchPoints>0){
+  cur.style.display='none';curf.style.display='none';document.body.style.cursor='auto';
+}else{
   let mx=0,my=0,fx=0,fy=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
   (function af(){fx+=(mx-fx)*.12;fy+=(my-fy)*.12;curf.style.left=fx+'px';curf.style.top=fy+'px';requestAnimationFrame(af);})();
-  document.querySelectorAll('a,button,.fq,.sc,.cc,.pack,.app-card,.pf').forEach(el=>{
+  document.querySelectorAll('a,button,.fq,.sc,.pack,.app-pill,.tn-card').forEach(el=>{
     el.addEventListener('mouseenter',()=>{cur.style.width='20px';cur.style.height='20px';cur.style.background='var(--accent2)';curf.style.width='62px';curf.style.height='62px';curf.style.borderColor='rgba(61,255,160,.55)';});
     el.addEventListener('mouseleave',()=>{cur.style.width='13px';cur.style.height='13px';cur.style.background='var(--accent)';curf.style.width='44px';curf.style.height='44px';curf.style.borderColor='rgba(200,245,61,.5)';});
   });
 }
 
-// ── HERO CANVAS ───────────────────────────────────────────────────────────
+// HERO CANVAS
 const hc=document.getElementById('hero-canvas'),hx=hc.getContext('2d');
 let W,H,P=[],hm={x:.5,y:.5};
 function rH(){W=hc.width=hc.offsetWidth;H=hc.height=hc.offsetHeight;}
-function mkP(){P=[];const N=Math.floor((W*H)/6500);for(let i=0;i<N;i++){const d=Math.random();P.push({ox:Math.random()*W,oy:Math.random()*H,x:0,y:0,r:Math.random()*1.8+.3,d,sp:(.1+Math.random()*.4)*(d*.6+.4),a:Math.random()*Math.PI*2,c:Math.random()<.25?'#c8f53d':Math.random()<.5?'#3dffa0':'rgba(255,255,255,.4)',o:Math.random()*.55+.1});}}
+function mkP(){P=[];const N=Math.floor((W*H)/6500);for(let i=0;i<N;i++){const d=Math.random();P.push({ox:Math.random()*W,oy:Math.random()*H,x:0,y:0,r:Math.random()*1.8+.3,d,sp:(.1+Math.random()*.4)*(d*.6+.4),a:Math.random()*Math.PI*2,c:Math.random()<.2?'#c8f53d':Math.random()<.45?'#1677ff':'rgba(255,255,255,.35)',o:Math.random()*.5+.1});}}
 document.addEventListener('mousemove',e=>{const r=hc.getBoundingClientRect();if(r.height>0){hm.x=(e.clientX-r.left)/r.width;hm.y=(e.clientY-r.top)/r.height;}});
-const blobs=[{x:.2,y:.3,r:.36,c:'rgba(200,245,61,.07)'},{x:.76,y:.6,r:.3,c:'rgba(61,255,160,.06)'},{x:.5,y:.15,r:.26,c:'rgba(200,245,61,.04)'}];
+const blobs=[{x:.2,y:.3,r:.38,c:'rgba(22,119,255,.06)'},{x:.76,y:.6,r:.3,c:'rgba(22,119,255,.05)'},{x:.5,y:.15,r:.28,c:'rgba(200,245,61,.04)'}];
 function hl(){
   hx.clearRect(0,0,W,H);hx.fillStyle='#080808';hx.fillRect(0,0,W,H);
   const nx=hm.x-.5,ny=hm.y-.5;
   blobs.forEach(b=>{const bx=(b.x+nx*.12)*W,by=(b.y+ny*.12)*H,br=b.r*Math.min(W,H),g=hx.createRadialGradient(bx,by,0,bx,by,br);g.addColorStop(0,b.c);g.addColorStop(1,'transparent');hx.fillStyle=g;hx.fillRect(0,0,W,H);});
   P.forEach(p=>{p.a+=p.sp*.008;p.x=p.ox+Math.sin(p.a)*8+nx*p.d*60;p.y=p.oy+Math.cos(p.a*.7)*5+ny*p.d*60;hx.beginPath();hx.arc(p.x,p.y,p.r,0,Math.PI*2);hx.globalAlpha=p.o;hx.fillStyle=p.c;hx.fill();hx.globalAlpha=1;});
-  hx.globalAlpha=.02;hx.strokeStyle='#fff';hx.lineWidth=.5;const g=120,ox=(nx*30)%g,oy=(ny*30)%g;
+  hx.globalAlpha=.018;hx.strokeStyle='#fff';hx.lineWidth=.5;const g=120,ox=(nx*30)%g,oy=(ny*30)%g;
   for(let x=-g+ox;x<W+g;x+=g){hx.beginPath();hx.moveTo(x,0);hx.lineTo(x,H);hx.stroke();}
   for(let y=-g+oy;y<H+g;y+=g){hx.beginPath();hx.moveTo(0,y);hx.lineTo(W,y);hx.stroke();}
   hx.globalAlpha=1;requestAnimationFrame(hl);
@@ -784,7 +768,7 @@ function hl(){
 window.addEventListener('resize',()=>{rH();mkP();},{passive:true});
 rH();mkP();hl();
 
-// ── NAV scroll ────────────────────────────────────────────────────────────
+// NAV
 const nav=document.getElementById('nav'),navTxt=document.getElementById('nav-text'),lf=document.getElementById('lf'),footer=document.getElementById('footer');
 window.addEventListener('scroll',()=>{
   const sy=window.scrollY;
@@ -794,35 +778,27 @@ window.addEventListener('scroll',()=>{
   lf.classList.toggle('on',sy>window.innerHeight*.55&&fr.top>window.innerHeight*.65);
 },{passive:true});
 
-// ── MAGNETIC ─────────────────────────────────────────────────────────────
+// MAGNETIC
 document.querySelectorAll('.btn').forEach(b=>{
   b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform='translate('+(e.clientX-r.left-r.width/2)*.25+'px,'+(e.clientY-r.top-r.height/2)*.35+'px)';});
   b.addEventListener('mouseleave',()=>b.style.transform='');
 });
 
-// ── SCROLL REVEAL ─────────────────────────────────────────────────────────
+// REVEAL
 const ro=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');ro.unobserve(e.target);}});},{threshold:.06,rootMargin:'0px 0px -20px 0px'});
 document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
 
-// ── CONTACTO CASCADE ──────────────────────────────────────────────────────
+// CONTACT SLIDE
 (function(){
   const ct=document.getElementById('contacto');
   if(!ct)return;
-  ct.style.transform='translateY(60px)';
-  ct.style.transition='transform 0s';
-  const co=new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
-        ct.style.transition='transform 0.7s cubic-bezier(0.23,1,0.32,1)';
-        ct.style.transform='translateY(0)';
-        co.disconnect();
-      }
-    });
-  },{threshold:0.08});
-  co.observe(ct);
+  ct.style.transform='translateY(60px)';ct.style.transition='transform 0s';
+  new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){ct.style.transition='transform .7s cubic-bezier(.23,1,.32,1)';ct.style.transform='none';}});
+  },{threshold:.06}).observe(ct);
 })();
 
-// ── FAQ ───────────────────────────────────────────────────────────────────
+// FAQ
 document.querySelectorAll('.fq').forEach(fq=>{
   fq.querySelector('.fq-q').addEventListener('click',()=>{
     const open=fq.classList.contains('open');
@@ -831,21 +807,12 @@ document.querySelectorAll('.fq').forEach(fq=>{
   });
 });
 
-// ── SCROLL DOTS ACTIVE ───────────────────────────────────────────────────
+// SCROLL DOTS
 (function(){
-  const sections=['hero','servicios','plataforma','packs','faq','contacto'];
+  const ids=['hero','servicios','plataforma','packs','faq','contacto'];
   const dots=document.querySelectorAll('.sd');
-  function onScroll(){
-    const sy=window.scrollY+200;
-    let active=0;
-    sections.forEach((id,i)=>{
-      const el=document.getElementById(id);
-      if(el&&el.offsetTop<=sy)active=i;
-    });
-    dots.forEach((d,i)=>d.classList.toggle('active',i===active));
-  }
-  window.addEventListener('scroll',onScroll,{passive:true});
-  onScroll();
+  function upd(){const sy=window.scrollY+200;let a=0;ids.forEach((id,i)=>{const el=document.getElementById(id);if(el&&el.offsetTop<=sy)a=i;});dots.forEach((d,i)=>d.classList.toggle('active',i===a));}
+  window.addEventListener('scroll',upd,{passive:true});upd();
 })();
 </script>
 </body>
