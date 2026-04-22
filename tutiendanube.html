@@ -118,66 +118,117 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
 .tn-card-name{font-size:20px;font-weight:600;color:#1a1a1a;line-height:1;}
 .tn-card-name b{color:var(--tn);font-weight:800;}
 .tn-card-desc{font-size:14px;color:#555;line-height:1.65;}
-.packs-head{text-align:center;max-width:620px;margin:0 auto 60px;}
-.packs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.pack{background:var(--gray);padding:44px 36px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:22px;transition:background .4s;cursor:none;}
-.pack:hover{background:var(--gray2);}
-.pack.featured{background:rgba(200,245,61,.06);border:1px solid rgba(200,245,61,.2);}
-.pack.featured:hover{background:rgba(200,245,61,.09);}
-.pack-label{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#777;}
-.pack-name{font-size:clamp(24px,2.8vw,36px);font-weight:800;letter-spacing:-1px;color:var(--white);}
-.pack.featured .pack-name{color:var(--accent);}
-.pack-star{display:inline-flex;background:var(--accent);color:var(--black);border-radius:100px;padding:4px 14px;font-size:12px;font-weight:700;width:fit-content;margin-top:-6px;}
-.pack-desc{font-size:15px;color:#bbb;line-height:1.6;}
-/* BORRA DESDE .pack-list HASTA .pack-list li em Y PEGA ESTO: */
+/* 1. ESTRUCTURA DE LOS PACKS */
+.packs-head { text-align: center; max-width: 620px; margin: 0 auto 60px; }
+.packs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
 
-.pack-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
+.pack { 
+    background: var(--gray); 
+    padding: 44px 36px; 
+    position: relative; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 22px; 
+    transition: background .4s; 
+    cursor: none; 
+}
+.pack:hover { background: var(--gray2); }
+.pack.featured { background: rgba(200,245,61,.06); border: 1px solid rgba(200,245,61,.2); }
+.pack.featured:hover { background: rgba(200,245,61,.09); }
+
+/* 2. TEXTOS CABECERA DEL PACK */
+.pack-label { font-size: 13px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #777; }
+.pack-name { font-size: clamp(24px, 2.8vw, 36px); font-weight: 800; letter-spacing: -1px; color: var(--white); }
+.pack.featured .pack-name { color: var(--accent); }
+.pack-star { display: inline-flex; background: var(--accent); color: var(--black); border-radius: 100px; padding: 4px 14px; font-size: 12px; font-weight: 700; width: fit-content; margin-top: -6px; }
+
+/* 3. LÓGICA DE APERTURA (OCULTO/VISIBLE) */
+.pack-desc { 
+    display: none; /* Se oculta por defecto */
+    font-size: 15px; 
+    color: #bbb; 
+    line-height: 1.6; 
+    padding-top: 4px; 
+    animation: fadeSlide .25s ease; 
+}
+.li-detail { 
+    display: none; /* Se oculta por defecto */
+    font-size: 13px; 
+    color: #888; 
+    line-height: 1.5; 
+    margin-top: 3px; 
+    animation: fadeSlide .2s ease; 
 }
 
-.pack-list li {
-    padding: 10px 0;
-    border-bottom: 0.5px solid rgba(255,255,255,.09);
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    position: relative;
-    padding-left: 18px;
-    font-size: 14px;
-    color: #ddd;
-    line-height: 1.5;
+/* Cuando el pack tiene la clase .open, se muestra el contenido */
+.pack.open .pack-desc, 
+.pack.open .li-detail { 
+    display: block; 
 }
 
-.pack-list li:last-child {
-    border-bottom: none;
+/* 4. LA LISTA DE ÍTEMS (ESTILO CLAUDE) */
+.pack-list { list-style: none; display: flex; flex-direction: column; }
+.pack-list li { 
+    padding: 10px 0; 
+    border-bottom: 0.5px solid rgba(255,255,255,.09); 
+    display: flex; 
+    flex-direction: column; 
+    gap: 3px; 
+    position: relative; 
+    padding-left: 18px; 
+    font-size: 14px; 
+    color: #ddd; 
+    line-height: 1.5; 
 }
+.pack-list li:last-child { border-bottom: none; }
+.pack-list li::before { 
+    content: '✓'; 
+    color: var(--accent); 
+    font-weight: 700; 
+    position: absolute; 
+    left: 0; 
+    top: 11px; 
+}
+.pack-list li strong { 
+    display: block; /* Mantiene el título arriba para que no se corte */
+    font-size: 12px; 
+    font-weight: 700; 
+    color: var(--accent); 
+    letter-spacing: .05em; 
+    text-transform: uppercase; 
+}
+.pack-list li em { color: #aaa; font-style: normal; }
 
-.pack-list li::before {
-    content: '✓';
-    color: var(--accent);
-    font-weight: 700;
-    position: absolute;
-    left: 0;
-    top: 11px;
+/* 5. BOTÓN Y EXTRAS */
+.pack-toggle { 
+    background: none; 
+    border: 1px solid rgba(255,255,255,.12); 
+    color: #777; 
+    font-size: 12px; 
+    font-weight: 600; 
+    letter-spacing: .06em; 
+    text-transform: uppercase; 
+    padding: 8px 16px; 
+    border-radius: 100px; 
+    cursor: pointer; 
+    width: fit-content; 
+    transition: border-color .2s, color .2s; 
+    margin-top: -4px; 
 }
+.pack-toggle:hover { border-color: rgba(255,255,255,.3); color: #ccc; }
+.pack.featured .pack-toggle { border-color: rgba(200,245,61,.25); color: rgba(200,245,61,.6); }
+.pack.featured .pack-toggle:hover { border-color: rgba(200,245,61,.6); color: var(--accent); }
 
-.pack-list li strong {
-    display: block;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--accent);
-    letter-spacing: .05em;
-    text-transform: uppercase;
-}
+.pack-note { font-size: 13px; color: #555; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.06); }
+.pack-cta { margin-top: auto; }
 
-.pack-list li em {
-    color: #aaa;
-    font-style: normal;
+/* 6. ANIMACIONES */
+@keyframes fadeSlide { 
+    from { opacity: 0; transform: translateY(-4px); } 
+    to { opacity: 1; transform: translateY(0); } 
 }
-.pack-note{font-size:13px;color:#555;padding-top:10px;border-top:1px solid rgba(255,255,255,.06);}
-.pack-cta{margin-top:auto;}
+  
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 .faq-list{display:flex;flex-direction:column;}
 .fq{border-bottom:1px solid rgba(255,255,255,.09);padding:24px 0;cursor:none;}
@@ -483,63 +534,124 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 </div>
 
 <!-- PACKS -->
-<div class="sticky-spacer">
-<section id="packs" class="ssticky">
-<div class="s-inner">
-  <div class="packs-head">
-    <div class="slabel rv" style="justify-content:center">Packs &amp; Precios</div>
-    <h2 class="stitle rv d1">Eleg&iacute; el plan ideal<br>para tu negocio.</h2>
-    <p class="rv d2" style="color:#ccc;font-size:16px;line-height:1.7;margin-top:10px;">Sin contratos de permanencia. Pago &uacute;nico y tu tienda lista para vender.</p>
+<div class="packs-grid rv d1">
+
+  <div class="pack" id="pack-esencial">
+    <div>
+      <div class="pack-label">Plan Inicial</div>
+      <div class="pack-name">Esencial</div>
+    </div>
+    <p class="pack-desc">Ideal para quienes están dando sus primeros pasos en el e-commerce con una solución rápida y efectiva.</p>
+    <ul class="pack-list">
+      <li>
+        <strong>Configuración Básica</strong>
+        <span class="li-detail">Puesta en marcha técnica con datos de contacto, redes sociales e información institucional.</span>
+      </li>
+      <li>
+        <strong>Diseño Funcional</strong>
+        <span class="li-detail">Elección y personalización de plantilla nativa para una navegación intuitiva y limpia.</span>
+      </li>
+      <li>
+        <strong>Dominio de Cortesía</strong>
+        <span class="li-detail">Configuración bajo la extensión gratuita <em>.mitiendanube.com</em>.</span>
+      </li>
+      <li>
+        <strong>Pagos y Envíos Base</strong>
+        <span class="li-detail">Activación de pasarelas principales (Tiendanube Pago / Mercado Pago) y envíos estándar.</span>
+      </li>
+      <li>
+        <strong>Ajustes y Guía</strong>
+        <span class="li-detail">Retoques mínimos para el lanzamiento y asesoramiento básico de la plataforma.</span>
+      </li>
+    </ul>
+    <button class="pack-toggle" onclick="togglePack('pack-esencial', this)">Ver detalles <span class="toggle-arrow">↓</span></button>
+    <div class="pack-note">🕐 Entrega: 10 a 15 días</div>
+    <div class="pack-cta">
+      <a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Plan%20Esencial%20Tiendanube." target="_blank" class="btn btn-out" style="width:100%;font-size:15px;padding:13px;cursor:none;"><span>Consultar precio →</span></a>
+    </div>
   </div>
-  <div class="packs-grid rv d1">
 
-    <div class="pack">
-      <div><div class="pack-label">Plan Inicial</div><div class="pack-name">Esencial</div></div>
-      <p class="pack-desc">Ideal para quienes est&aacute;n dando sus primeros pasos en el e-commerce con una soluci&oacute;n r&aacute;pida y efectiva.</p>
-      <ul class="pack-list">
-        <li><strong>Configuraci&oacute;n B&aacute;sica:</strong> Puesta en marcha t&eacute;cnica con datos de contacto, redes sociales e informaci&oacute;n institucional.</li>
-        <li><strong>Dise&ntilde;o Funcional:</strong> Elecci&oacute;n y personalizaci&oacute;n de plantilla nativa para una navegaci&oacute;n intuitiva y limpia.</li>
-        <li><strong>Dominio de Cortes&iacute;a:</strong> Configuraci&oacute;n bajo la extensi&oacute;n gratuita <em>.mitiendanube.com</em>.</li>
-        <li><strong>Pagos y Env&iacute;os Base:</strong> Activaci&oacute;n de pasarelas principales (Tiendanube Pago / Mercado Pago) y env&iacute;os est&aacute;ndar.</li>
-        <li><strong>Ajustes y Gu&iacute;a:</strong> Retoques m&iacute;nimos para el lanzamiento y asesoramiento b&aacute;sico de la plataforma.</li>
-      </ul>
-      <div class="pack-note">&#128337; Entrega: 10 a 15 d&iacute;as</div>
-      <div class="pack-cta"><a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Plan%20Esencial%20Tiendanube." target="_blank" class="btn btn-out" style="width:100%;font-size:15px;padding:13px;cursor:none;"><span>Consultar precio &rarr;</span></a></div>
+  <div class="pack featured" id="pack-profesional">
+    <div>
+      <div class="pack-label">Plan Estándar</div>
+      <div class="pack-name">Profesional</div>
+      <div class="pack-star">★ Más elegido</div>
     </div>
-
-    <div class="pack featured">
-      <div><div class="pack-label">Plan Est&aacute;ndar</div><div class="pack-name">Profesional</div><div class="pack-star">&#9733; M&aacute;s elegido</div></div>
-      <p class="pack-desc">Pensado para marcas que buscan una identidad propia y mayor presencia en el mercado.</p>
-      <ul class="pack-list">
-        <li><strong>Configuraci&oacute;n Integral:</strong> Setup completo optimizando cada secci&oacute;n para mejorar la experiencia del usuario.</li>
-        <li><strong>Dise&ntilde;o Personalizado:</strong> Est&eacute;tica visual con banners b&aacute;sicos de marca (sliders principales).</li>
-        <li><strong>Dominio Propio:</strong> Registro, delegaci&oacute;n t&eacute;cnica e integraci&oacute;n de tu dominio <em>.com.ar</em>.</li>
-        <li><strong>Ecosistema de Ventas:</strong> Configuraci&oacute;n de todos los medios de pago y m&eacute;todos de env&iacute;o requeridos.</li>
-        <li><strong>Asesor&iacute;a y Retoques:</strong> Sesi&oacute;n personalizada y una ronda de retoques limitados antes del estreno.</li>
-      </ul>
-      <div class="pack-note">&#128337; Entrega: 10 a 15 d&iacute;as</div>
-      <div class="pack-cta"><a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Plan%20Profesional%20Tiendanube." target="_blank" class="btn btn-acc btn-blink" style="width:100%;font-size:15px;padding:13px;cursor:none;"><span>Consultar precio &rarr;</span></a></div>
+    <p class="pack-desc">Pensado para marcas que buscan una identidad propia y mayor presencia en el mercado.</p>
+    <ul class="pack-list">
+      <li>
+        <strong>Configuración Integral</strong>
+        <span class="li-detail">Setup completo optimizando cada sección para mejorar la experiencia del usuario.</span>
+      </li>
+      <li>
+        <strong>Diseño Personalizado</strong>
+        <span class="li-detail">Estética visual con banners básicos de marca (sliders principales).</span>
+      </li>
+      <li>
+        <strong>Dominio Propio</strong>
+        <span class="li-detail">Registro, delegación técnica e integración de tu dominio <em>.com.ar</em>.</span>
+      </li>
+      <li>
+        <strong>Ecosistema de Ventas</strong>
+        <span class="li-detail">Configuración de todos los medios de pago y métodos de envío requeridos.</span>
+      </li>
+      <li>
+        <strong>Asesoría y Retoques</strong>
+        <span class="li-detail">Sesión personalizada y una ronda de retoques limitados antes del estreno.</span>
+      </li>
+    </ul>
+    <button class="pack-toggle" onclick="togglePack('pack-profesional', this)">Ver detalles <span class="toggle-arrow">↓</span></button>
+    <div class="pack-note">🕐 Entrega: 10 a 15 días</div>
+    <div class="pack-cta">
+      <a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Plan%20Profesional%20Tiendanube." target="_blank" class="btn btn-acc btn-blink" style="width:100%;font-size:15px;padding:13px;cursor:none;"><span>Consultar precio →</span></a>
     </div>
-
-    <div class="pack">
-      <div><div class="pack-label">Plan Completo</div><div class="pack-name">Premium</div></div>
-      <p class="pack-desc">La soluci&oacute;n definitiva. Deleg&aacute;s todo el trabajo t&eacute;cnico y creativo para recibir una tienda lista para vender.</p>
-      <ul class="pack-list">
-        <li><strong>Llave en Mano:</strong> Configuraci&oacute;n avanzada de punta a punta, con detalles de conversi&oacute;n y experiencia de compra.</li>
-        <li><strong>Piezas Gr&aacute;ficas:</strong> Material visual a medida (sliders, banners de categor&iacute;as, promociones y pop-ups).</li>
-        <li><strong>Dominio .com.ar:</strong> Tramitaci&oacute;n t&eacute;cnica integral y vinculaci&oacute;n sin que tengas que preocuparte por el setup.</li>
-        <li><strong>Full Integraciones:</strong> Pagos, env&iacute;os y herramientas adicionales (WhatsApp flotante, cupones, promociones).</li>
-        <li><strong>Soporte Premium:</strong> Retoques y asesoramiento personalizados durante todo el proceso.</li>
-      </ul>
-      <div class="pack-note">&#128337; Entrega a definir con el cliente</div>
-      <div class="pack-cta"><a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Plan%20Premium%20Tiendanube." target="_blank" class="btn btn-out" style="width:100%;font-size:15px;padding:13px;cursor:none;"><span>Consultar precio &rarr;</span></a></div>
-    </div>
-
   </div>
-  <p class="rv d3" style="text-align:center;color:#555;font-size:13px;margin-top:24px;">Todos los packs son pago &uacute;nico &bull; 50% al confirmar &mdash; 50% antes de la entrega &bull; Sin cargos de mantenimiento</p>
+
+  <div class="pack" id="pack-premium">
+    <div>
+      <div class="pack-label">Plan Completo</div>
+      <div class="pack-name">Premium</div>
+    </div>
+    <p class="pack-desc">La solución definitiva. Delegás todo el trabajo técnico y creativo para recibir una tienda lista para vender.</p>
+    <ul class="pack-list">
+      <li>
+        <strong>Llave en Mano</strong>
+        <span class="li-detail">Configuración avanzada de punta a punta, con detalles de conversión y experiencia de compra.</span>
+      </li>
+      <li>
+        <strong>Piezas Gráficas</strong>
+        <span class="li-detail">Material visual a medida (sliders, banners de categorías, promociones y pop-ups).</span>
+      </li>
+      <li>
+        <strong>Dominio .com.ar</strong>
+        <span class="li-detail">Tramitación técnica integral y vinculación sin que tengas que preocuparte por el setup.</span>
+      </li>
+      <li>
+        <strong>Full Integraciones</strong>
+        <span class="li-detail">Pagos, envíos y herramientas adicionales (WhatsApp flotante, cupones, promociones).</span>
+      </li>
+      <li>
+        <strong>Soporte Premium</strong>
+        <span class="li-detail">Retoques y asesoramiento personalizados durante todo el proceso.</span>
+      </li>
+    </ul>
+    <button class="pack-toggle" onclick="togglePack('pack-premium', this)">Ver detalles <span class="toggle-arrow">↓</span></button>
+    <div class="pack-note">🕐 Entrega a definir con el cliente</div>
+    <div class="pack-cta">
+      <a href="https://wa.me/5491178294001?text=Hola%20Krea!%20Me%20interesa%20el%20Plan%20Premium%20Tiendanube." target="_blank" class="btn btn-out" style="width:100%;font-size:15px;padding:13px;cursor:none;"><span>Consultar precio →</span></a>
+    </div>
+  </div>
+
 </div>
-</section>
-</div>
+
+<script>
+function togglePack(id, btn) {
+  const pack = document.getElementById(id);
+  const isOpen = pack.classList.toggle('open');
+  btn.querySelector('.toggle-arrow').textContent = isOpen ? '↑' : '↓';
+  btn.firstChild.textContent = isOpen ? 'Ocultar ' : 'Ver detalles ';
+}
+</script>
 
 <!-- FAQ -->
 <div class="sticky-spacer">
