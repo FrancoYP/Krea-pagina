@@ -294,6 +294,139 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 .sd{width:9px;height:9px;border-radius:50%;border:1.5px solid rgba(255,255,255,.33);display:block;transition:all .35s cubic-bezier(.23,1,.32,1);cursor:none;}
 .sd:hover{border-color:var(--accent);transform:scale(1.3);}
 .sd.active{background:var(--accent);border-color:var(--accent);width:11px;height:11px;box-shadow:0 0 10px rgba(200,245,61,.5);}
+
+/* =============================================
+   TN PARTNER POPUP & FAB — NUEVOS ESTILOS
+   ============================================= */
+
+/* Popup principal */
+.tn-partner-popup {
+  position: fixed;
+  bottom: 104px; /* por encima del grupo wa-fixed */
+  left: 32px;
+  z-index: 490;
+  width: 270px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 12px 48px rgba(0,0,0,.55), 0 0 0 1px rgba(22,119,255,.18);
+  overflow: hidden;
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  transition: transform .4s cubic-bezier(.23,1,.32,1), opacity .35s;
+  pointer-events: auto;
+}
+.tn-partner-popup.tn-popup-hidden {
+  transform: translateY(16px) scale(.92);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Botón X de cierre */
+.tn-popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(0,0,0,.52);
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  transition: background .2s, transform .2s;
+  font-family: var(--font);
+}
+.tn-popup-close:hover { background: rgba(0,0,0,.82); transform: scale(1.1); }
+
+/* Imagen del popup */
+.tn-popup-img {
+  width: 100%;
+  display: block;
+}
+
+/* Footer / CTA dentro del popup */
+.tn-popup-cta-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #1677ff;
+  padding: 11px 14px;
+  text-decoration: none;
+  transition: background .2s;
+  cursor: pointer;
+}
+.tn-popup-cta-bar:hover { background: #0d5bd4; }
+.tn-popup-cta-text {
+  font-family: var(--font);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #fff;
+  line-height: 1.4;
+}
+.tn-popup-cta-text strong { color: #c8f53d; }
+.tn-popup-cta-arrow {
+  font-size: 18px;
+  color: #c8f53d;
+  flex-shrink: 0;
+  transition: transform .2s;
+}
+.tn-popup-cta-bar:hover .tn-popup-cta-arrow { transform: translateX(3px); }
+
+/* Botón circular flotante TN (FAB) — se muestra cuando el popup está cerrado */
+.tn-fab-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #1677ff;
+  border: none;
+  display: none; /* oculto por defecto; JS lo muestra al cerrar popup */
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 24px rgba(22,119,255,.5);
+  transition: transform .3s, box-shadow .3s;
+  position: relative;
+  flex-shrink: 0;
+}
+.tn-fab-btn:hover { transform: scale(1.12); box-shadow: 0 8px 36px rgba(22,119,255,.7); }
+.tn-fab-btn::before {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  border: 2px solid rgba(22,119,255,.35);
+  animation: wap 2.5s ease-in-out infinite;
+}
+.tn-fab-btn svg { width: 26px; height: 26px; }
+
+/* Tooltip del FAB */
+.tn-fab-tooltip {
+  position: absolute;
+  left: 64px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(8,8,8,.92);
+  border: 1px solid rgba(22,119,255,.3);
+  border-radius: 8px;
+  padding: 6px 12px;
+  white-space: nowrap;
+  font-family: var(--font);
+  font-size: 12px;
+  font-weight: 600;
+  color: #5aadff;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .25s;
+}
+.tn-fab-btn:hover .tn-fab-tooltip { opacity: 1; }
+
 @media(max-width:900px){
   #cur,#cur-f{display:none!important;}
   body{cursor:auto!important;}
@@ -359,6 +492,10 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   .wa-fixed{bottom:14px;left:14px;}
   .wa-btn{width:48px;height:48px;}
   #scroll-dots{display:none;}
+  /* Popup mobile */
+  .tn-partner-popup{width:230px;bottom:84px;left:14px;}
+  .tn-fab-btn{width:48px;height:48px;}
+  .tn-fab-btn svg{width:22px;height:22px;}
 }
 @media(max-width:480px){
   .hero-title{font-size:clamp(30px,12vw,44px);letter-spacing:-1.5px;}
@@ -370,11 +507,36 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 </head>
 <body>
 
+<!-- =============================================
+     TN PARTNER POPUP
+     Renombrá tu imagen a: tn-partner-promo.png
+     y colocala en la misma carpeta que este HTML
+     ============================================= -->
+<div id="tn-partner-popup" class="tn-partner-popup">
+  <button class="tn-popup-close" onclick="closeTnPopup()" title="Cerrar">&#x2715;</button>
+  <img src="tn-partner-promo.png" alt="Con tu Tiendanube vendés las 24 horas · 25% OFF" class="tn-popup-img">
+  <a href="https://www.tiendanube.com/partners/agencia-krea" target="_blank" class="tn-popup-cta-bar">
+    <span class="tn-popup-cta-text">Con nuestro link de partner conseguís <strong>25% OFF</strong> en tu plan</span>
+    <span class="tn-popup-cta-arrow">&#8250;</span>
+  </a>
+</div>
+
 <div class="wa-fixed">
   <div class="lf" id="lf">
     <img src="krea-logo.png" alt="Krea" style="width:32px;height:32px;border-radius:7px;object-fit:cover;flex-shrink:0;">
     <div class="lf-text">Krea<em> .</em></div>
   </div>
+
+  <!-- FAB de Tiendanube: visible cuando el popup está cerrado -->
+  <button id="tn-fab" class="tn-fab-btn" onclick="openTnPopup()" title="Oferta Tiendanube">
+    <!-- Ícono nube Tiendanube -->
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M27 16.5a9 9 0 00-17.5-2.8A6.5 6.5 0 008 27h20a5.5 5.5 0 00.5-11A9.1 9.1 0 0027 16.5z" fill="white" opacity=".95"/>
+      <text x="18" y="25" text-anchor="middle" fill="#1677ff" font-family="Outfit,sans-serif" font-size="10" font-weight="800">%</text>
+    </svg>
+    <span class="tn-fab-tooltip">¡25% OFF en Tiendanube!</span>
+  </button>
+
   <a href="https://wa.me/5491178294001" target="_blank" class="wa-btn" title="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
@@ -776,6 +938,35 @@ function togglePack(id, btn) {
 </div>
 
 <script>
+/* =============================================
+   TN PARTNER POPUP — LÓGICA
+   ============================================= */
+(function(){
+  var popup = document.getElementById('tn-partner-popup');
+  var fab   = document.getElementById('tn-fab');
+
+  // Ocultar popup al inicio; mostrarlo con delay
+  popup.classList.add('tn-popup-hidden');
+
+  // Mostrar popup 3 segundos después de cargar la página
+  setTimeout(function(){
+    popup.classList.remove('tn-popup-hidden');
+  }, 3000);
+
+  window.closeTnPopup = function(){
+    popup.classList.add('tn-popup-hidden');
+    fab.style.display = 'flex';
+  };
+
+  window.openTnPopup = function(){
+    popup.classList.remove('tn-popup-hidden');
+    fab.style.display = 'none';
+  };
+})();
+
+/* =============================================
+   RESTO DE SCRIPTS ORIGINALES
+   ============================================= */
 function sendToWhatsApp(){
   var n=document.getElementById('ct-nombre').value.trim()||'No especificado';
   var e=document.getElementById('ct-empresa').value.trim()||'No especificada';
@@ -859,14 +1050,13 @@ document.querySelectorAll('.fq').forEach(fq=>{
   });
 });
 
-// SCROLL DOTS — usa getBoundingClientRect para funcionar correctamente con secciones sticky
+// SCROLL DOTS
 (function(){
   var ids=['hero','servicios','plataforma','packs','faq','contacto'];
   var dots=document.querySelectorAll('.sd');
   var ticking=false;
   function upd(){
     var active=0;
-    // Usamos el 40% superior de la pantalla como umbral de activación
     var threshold=window.innerHeight*0.4;
     ids.forEach(function(id,i){
       var el=document.getElementById(id);
@@ -886,7 +1076,6 @@ document.querySelectorAll('.fq').forEach(fq=>{
       ticking=true;
     }
   },{passive:true});
-  // Ejecutar al cargar para inicializar el punto correcto
   upd();
 })();
 </script>
