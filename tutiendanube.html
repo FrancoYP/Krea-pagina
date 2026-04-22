@@ -129,11 +129,53 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
 .pack.featured .pack-name{color:var(--accent);}
 .pack-star{display:inline-flex;background:var(--accent);color:var(--black);border-radius:100px;padding:4px 14px;font-size:12px;font-weight:700;width:fit-content;margin-top:-6px;}
 .pack-desc{font-size:15px;color:#bbb;line-height:1.6;}
-.pack-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.pack-list li{display:flex;align-items:flex-start;gap:9px;font-size:14px;color:#ddd;line-height:1.5;}
-.pack-list li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px;}
-.pack-list li strong{color:var(--white);font-weight:600;}
-.pack-list li em{color:#aaa;font-style:normal;}
+/* BORRA DESDE .pack-list HASTA .pack-list li em Y PEGA ESTO: */
+
+.pack-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.pack-list li {
+    padding: 10px 0;
+    border-bottom: 0.5px solid rgba(255,255,255,.09);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    position: relative;
+    padding-left: 18px;
+    font-size: 14px;
+    color: #ddd;
+    line-height: 1.5;
+}
+
+.pack-list li:last-child {
+    border-bottom: none;
+}
+
+.pack-list li::before {
+    content: '✓';
+    color: var(--accent);
+    font-weight: 700;
+    position: absolute;
+    left: 0;
+    top: 11px;
+}
+
+.pack-list li strong {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: .05em;
+    text-transform: uppercase;
+}
+
+.pack-list li em {
+    color: #aaa;
+    font-style: normal;
+}
 .pack-note{font-size:13px;color:#555;padding-top:10px;border-top:1px solid rgba(255,255,255,.06);}
 .pack-cta{margin-top:auto;}
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
