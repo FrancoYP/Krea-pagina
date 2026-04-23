@@ -145,7 +145,7 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
 
 /* 3. LÓGICA DE APERTURA (OCULTO/VISIBLE) */
 .pack-desc { 
-    display: none; /* Se oculta por defecto */
+    display: none;
     font-size: 15px; 
     color: #bbb; 
     line-height: 1.6; 
@@ -153,21 +153,19 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
     animation: fadeSlide .25s ease; 
 }
 .li-detail { 
-    display: none; /* Se oculta por defecto */
+    display: none;
     font-size: 13px; 
     color: #888; 
     line-height: 1.5; 
     margin-top: 3px; 
     animation: fadeSlide .2s ease; 
 }
-
-/* Cuando el pack tiene la clase .open, se muestra el contenido */
 .pack.open .pack-desc, 
 .pack.open .li-detail { 
     display: block; 
 }
 
-/* 4. LA LISTA DE ÍTEMS (ESTILO CLAUDE) */
+/* 4. LA LISTA DE ÍTEMS */
 .pack-list { list-style: none; display: flex; flex-direction: column; }
 .pack-list li { 
     padding: 10px 0; 
@@ -191,7 +189,7 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
     top: 11px; 
 }
 .pack-list li strong { 
-    display: block; /* Mantiene el título arriba para que no se corte */
+    display: block;
     font-size: 12px; 
     font-weight: 700; 
     color: var(--accent); 
@@ -228,6 +226,16 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
     from { opacity: 0; transform: translateY(-4px); } 
     to { opacity: 1; transform: translateY(0); } 
 }
+
+/* TYPEWRITER */
+.tw-cursor::after {
+  content: '|';
+  color: var(--accent);
+  animation: tw-blink .6s step-end infinite;
+  margin-left: 2px;
+  font-weight: 300;
+}
+@keyframes tw-blink { 0%,100%{opacity:1} 50%{opacity:0} }
   
 .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
 .faq-list{display:flex;flex-direction:column;}
@@ -296,13 +304,12 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 .sd.active{background:var(--accent);border-color:var(--accent);width:11px;height:11px;box-shadow:0 0 10px rgba(200,245,61,.5);}
 
 /* =============================================
-   TN PARTNER POPUP & FAB — NUEVOS ESTILOS
+   TN PARTNER POPUP & FAB
    ============================================= */
 
-/* Popup principal */
 .tn-partner-popup {
   position: fixed;
-  bottom: 104px; /* por encima del grupo wa-fixed */
+  bottom: 160px; /* suficiente para quedar por encima del grupo wa-fixed */
   left: 32px;
   z-index: 490;
   width: 270px;
@@ -321,7 +328,6 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   pointer-events: none;
 }
 
-/* Botón X de cierre */
 .tn-popup-close {
   position: absolute;
   top: 8px;
@@ -344,20 +350,18 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 }
 .tn-popup-close:hover { background: rgba(0,0,0,.82); transform: scale(1.1); }
 
-/* Imagen del popup */
 .tn-popup-img {
   width: 100%;
   display: block;
 }
 
-/* Footer / CTA dentro del popup */
 .tn-popup-cta-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   background: #1677ff;
-  padding: 11px 14px;
+  padding: 14px 16px;
   text-decoration: none;
   transition: background .2s;
   cursor: pointer;
@@ -365,28 +369,27 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 .tn-popup-cta-bar:hover { background: #0d5bd4; }
 .tn-popup-cta-text {
   font-family: var(--font);
-  font-size: 12.5px;
+  font-size: 14px; /* aumentado de 12.5px */
   font-weight: 600;
   color: #fff;
-  line-height: 1.4;
+  line-height: 1.45;
 }
 .tn-popup-cta-text strong { color: #c8f53d; }
 .tn-popup-cta-arrow {
-  font-size: 18px;
+  font-size: 22px;
   color: #c8f53d;
   flex-shrink: 0;
   transition: transform .2s;
 }
 .tn-popup-cta-bar:hover .tn-popup-cta-arrow { transform: translateX(3px); }
 
-/* Botón circular flotante TN (FAB) — se muestra cuando el popup está cerrado */
 .tn-fab-btn {
   width: 56px;
   height: 56px;
   border-radius: 50%;
   background: #1677ff;
   border: none;
-  display: none; /* oculto por defecto; JS lo muestra al cerrar popup */
+  display: none;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -406,7 +409,6 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 }
 .tn-fab-btn svg { width: 26px; height: 26px; }
 
-/* Tooltip del FAB */
 .tn-fab-tooltip {
   position: absolute;
   left: 64px;
@@ -427,6 +429,13 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 }
 .tn-fab-btn:hover .tn-fab-tooltip { opacity: 1; }
 
+/* =============================================
+   PACKS — INDICADOR SWIPE MOBILE
+   ============================================= */
+.packs-swipe-hint {
+  display: none;
+}
+
 @media(max-width:900px){
   #cur,#cur-f{display:none!important;}
   body{cursor:auto!important;}
@@ -435,6 +444,10 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   .nav-logo{width:auto;}
   .nav-links{display:none;}
   .btn{padding:12px 22px;font-size:15px;}
+
+  /* Ocultar flecha del botón hero en mobile */
+  .hero-cta-arrow{display:none;}
+
   #hero{padding:88px 16px 56px;}
   .hero-title{font-size:clamp(34px,11vw,54px);letter-spacing:-2px;}
   .hero-sub{font-size:16px;margin-bottom:28px;}
@@ -446,11 +459,17 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   .tn-cert{padding:10px 14px;gap:10px;}
   .ssticky{padding:56px 16px 68px;}
   #plataforma,#faq{border-radius:0!important;box-shadow:none!important;}
-  .srv-head{grid-template-columns:1fr;gap:20px;margin-bottom:36px;}
-  .srv-grid{grid-template-columns:1fr;}
-  .sc{padding:30px 20px;}
-  .sc-icon{width:38px;height:38px;margin-bottom:18px;}
-  .sc-name{font-size:18px;}
+
+  /* Servicios: 2 columnas compactas en mobile */
+  .srv-head{grid-template-columns:1fr;gap:20px;margin-bottom:28px;}
+  .srv-grid{grid-template-columns:1fr 1fr;gap:2px;}
+  .sc{padding:18px 14px;}
+  .sc-icon{width:32px;height:32px;margin-bottom:12px;}
+  .sc-num{font-size:11px;top:12px;right:14px;}
+  .sc-name{font-size:15px;margin-bottom:6px;}
+  .sc-desc{font-size:13px;line-height:1.55;}
+  .sc-link{font-size:13px;margin-top:12px;}
+
   .plat-head-grid{grid-template-columns:1fr;gap:16px;margin-bottom:36px;}
   .tn-stats{grid-template-columns:repeat(3,1fr);gap:2px;margin-bottom:36px;}
   .tn-stat{padding:16px 8px;}
@@ -467,10 +486,48 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   .tn-card{padding:20px 16px;gap:10px;border-radius:12px;}
   .tn-card-name{font-size:17px;}
   .tn-card-desc{font-size:13px;}
-  .packs-head{margin-bottom:32px;}
-  .packs-grid{grid-template-columns:1fr;}
-  .pack{padding:32px 20px;}
+
+  /* PACKS — Carrusel horizontal en mobile */
+  .packs-head{margin-bottom:24px;}
+  .packs-grid{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+    padding: 4px 4px 16px;
+    scrollbar-width: none;
+    margin: 0 -16px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .packs-grid::-webkit-scrollbar{display:none;}
+  .pack{
+    flex: 0 0 calc(92%);
+    scroll-snap-align: center;
+    min-width: 0;
+    border-radius: 16px;
+  }
+  .pack{padding:28px 20px;}
   .pack-name{font-size:28px;}
+  /* Profesional aparece primero en mobile */
+  #pack-profesional{order:-1;}
+  #pack-esencial{order:0;}
+  #pack-premium{order:1;}
+  /* Indicador swipe */
+  .packs-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: .05em;
+  }
+  .packs-swipe-hint span { color: var(--accent); }
+
   .faq-grid{grid-template-columns:1fr;gap:28px;}
   .fq{padding:20px 0;}
   .fq-q{font-size:15px;}
@@ -491,11 +548,11 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   .ft-logo img{width:36px;height:36px;}
   .wa-fixed{bottom:14px;left:14px;}
   .wa-btn{width:48px;height:48px;}
-  #scroll-dots{display:none;}
-  /* Popup mobile */
-  .tn-partner-popup{width:230px;bottom:84px;left:14px;}
   .tn-fab-btn{width:48px;height:48px;}
   .tn-fab-btn svg{width:22px;height:22px;}
+  /* Popup mobile */
+  .tn-partner-popup{width:230px;bottom:124px;left:14px;}
+  #scroll-dots{display:none;}
 }
 @media(max-width:480px){
   .hero-title{font-size:clamp(30px,12vw,44px);letter-spacing:-1.5px;}
@@ -507,11 +564,7 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 </head>
 <body>
 
-<!-- =============================================
-     TN PARTNER POPUP
-     Renombrá tu imagen a: tn-partner-promo.png
-     y colocala en la misma carpeta que este HTML
-     ============================================= -->
+<!-- TN PARTNER POPUP -->
 <div id="tn-partner-popup" class="tn-partner-popup">
   <button class="tn-popup-close" onclick="closeTnPopup()" title="Cerrar">&#x2715;</button>
   <img src="tn-partner-promo.png" alt="Con tu Tiendanube vendés las 24 horas · 25% OFF" class="tn-popup-img">
@@ -522,14 +575,8 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 </div>
 
 <div class="wa-fixed">
-  <div class="lf" id="lf">
-    <img src="krea-logo.png" alt="Krea" style="width:32px;height:32px;border-radius:7px;object-fit:cover;flex-shrink:0;">
-    <div class="lf-text">Krea<em> .</em></div>
-  </div>
-
   <!-- FAB de Tiendanube: visible cuando el popup está cerrado -->
   <button id="tn-fab" class="tn-fab-btn" onclick="openTnPopup()" title="Oferta Tiendanube">
-    <!-- Ícono nube Tiendanube -->
     <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M27 16.5a9 9 0 00-17.5-2.8A6.5 6.5 0 008 27h20a5.5 5.5 0 00.5-11A9.1 9.1 0 0027 16.5z" fill="white" opacity=".95"/>
       <text x="18" y="25" text-anchor="middle" fill="#1677ff" font-family="Outfit,sans-serif" font-size="10" font-weight="800">%</text>
@@ -540,6 +587,12 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   <a href="https://wa.me/5491178294001" target="_blank" class="wa-btn" title="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
+
+  <!-- Logo Krea: al último = más abajo en la columna flex -->
+  <div class="lf" id="lf">
+    <img src="krea-logo.png" alt="Krea" style="width:32px;height:32px;border-radius:7px;object-fit:cover;flex-shrink:0;">
+    <div class="lf-text">Krea<em> .</em></div>
+  </div>
 </div>
 
 <div id="cur"></div><div id="cur-f"></div>
@@ -569,7 +622,7 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
     </h1>
     <p class="hero-sub">Dise&ntilde;amos, configuramos y lanzamos tu tienda en la plataforma de e-commerce m&aacute;s elegida de Latinoam&eacute;rica. Estrategia, dise&ntilde;o y crecimiento en un solo lugar.</p>
     <div class="hero-ctas">
-      <a href="#contacto" class="btn btn-acc"><span>Quiero mi tienda &rarr;</span></a>
+      <a href="#contacto" class="btn btn-acc"><span>Quiero mi tienda <span class="hero-cta-arrow">&rarr;</span></span></a>
       <a href="#packs" class="btn btn-out"><span>Ver packs</span></a>
     </div>
     <div class="tn-cert">
@@ -604,8 +657,8 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 <div class="s-inner">
   <div class="srv-head">
     <div>
-      <div class="slabel rv">Nuestros servicios</div>
-      <h2 class="stitle rv d1">Todo lo que necesit&aacute;s<br>para vender online.</h2>
+      <div class="slabel rv" data-tw="Nuestros servicios">Nuestros servicios</div>
+      <h2 class="stitle rv d1" data-tw="Todo lo que necesitás para vender online.">Todo lo que necesit&aacute;s<br>para vender online.</h2>
     </div>
     <p class="srv-desc rv d2" style="margin-top:8px;">Nos encargamos de todo el proceso: dise&ntilde;o, configuraci&oacute;n y marketing. Vos te enfoc&aacute;s en tu negocio, nosotros en que venda. ¡Nos gustaria ser parte de tu proyecto!</p>
   </div>
@@ -807,8 +860,14 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
     </div>
 
   </div>
+
+  <!-- Indicador swipe solo en mobile -->
+  <div class="packs-swipe-hint">
+    <span>←</span> deslizá para ver más planes <span>→</span>
+  </div>
+
   <p class="rv d3" style="text-align:center;color:#555;font-size:13px;margin-top:24px;">Todos los packs son pago único &bull; 50% al confirmar &mdash; 50% antes de la entrega &bull; Sin cargos de mantenimiento</p>
-  <p class="rv d3" style="text-align:center;color:#ccc;font-size:23px;margin-top:24px;">DE NO SABER QUE PLAN ELEGIR PREGUNTA POR CUALQUIERA Y NOSOTROS TE ASESORAMOS</p>
+  <p class="rv d3 tw-advice" data-tw="DE NO SABER QUÉ PLAN ELEGIR, PREGUNTÁ POR CUALQUIERA Y NOSOTROS TE ASESORAMOS" style="text-align:center;color:#ccc;font-size:23px;margin-top:24px;min-height:1.5em;">&nbsp;</p>
 </div>
 </section>
 </div>
@@ -945,10 +1004,8 @@ function togglePack(id, btn) {
   var popup = document.getElementById('tn-partner-popup');
   var fab   = document.getElementById('tn-fab');
 
-  // Ocultar popup al inicio; mostrarlo con delay
   popup.classList.add('tn-popup-hidden');
 
-  // Mostrar popup 3 segundos después de cargar la página
   setTimeout(function(){
     popup.classList.remove('tn-popup-hidden');
   }, 3000);
@@ -965,7 +1022,48 @@ function togglePack(id, btn) {
 })();
 
 /* =============================================
-   RESTO DE SCRIPTS ORIGINALES
+   TYPEWRITER EFFECT
+   ============================================= */
+function typeWriter(el, text, speed, onDone) {
+  el.textContent = '';
+  el.classList.add('tw-cursor');
+  var i = 0;
+  function tick() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i++);
+      setTimeout(tick, speed);
+    } else {
+      el.classList.remove('tw-cursor');
+      if (onDone) onDone();
+    }
+  }
+  tick();
+}
+
+var twObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      var el = e.target;
+      var text = el.dataset.tw;
+      if (text) {
+        // Delay slightly for slabel/stitle cascade
+        var delay = el.classList.contains('d1') ? 200 : el.classList.contains('d2') ? 400 : 0;
+        setTimeout(function() {
+          typeWriter(el, text, 38);
+        }, delay);
+      }
+      twObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.4 });
+
+document.querySelectorAll('[data-tw]').forEach(function(el) {
+  el.textContent = '\u00a0'; // placeholder para mantener altura
+  twObserver.observe(el);
+});
+
+/* =============================================
+   WHATSAPP FORM
    ============================================= */
 function sendToWhatsApp(){
   var n=document.getElementById('ct-nombre').value.trim()||'No especificado';
