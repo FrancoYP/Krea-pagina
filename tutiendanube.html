@@ -45,8 +45,10 @@ nav.scrolled{background:rgba(8,8,8,.93);backdrop-filter:blur(22px);padding:13px 
 .hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(22,119,255,.1);border:1px solid rgba(22,119,255,.3);border-radius:100px;padding:8px 22px;font-size:14px;font-weight:500;letter-spacing:.07em;color:#5aadff;text-transform:uppercase;margin-bottom:36px;}
 .hero-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:#5aadff;animation:pdot 2s infinite;flex-shrink:0;}
 @keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
+
+/* FIX 2: Título hero — quitar overflow:hidden en .line para que no corte la "a" en desktop */
 .hero-title{font-size:clamp(44px,8vw,110px);font-weight:800;line-height:.93;letter-spacing:-3px;margin-bottom:28px;}
-.hero-title .line{display:block;overflow:hidden;padding-bottom:.12em;margin-bottom:-.12em;}
+.hero-title .line{display:block;padding-bottom:.18em;margin-bottom:-.12em;}
 .hero-title .line span{display:inline-block;animation:sup .9s cubic-bezier(.23,1,.32,1) both;}
 .hero-title .line:nth-child(2) span{animation-delay:.1s;}
 .hero-title .line:nth-child(3) span{animation-delay:.2s;}
@@ -307,16 +309,17 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
    TN PARTNER POPUP & FAB
    ============================================= */
 
+/* FIX 1 & 4: Popup — imagen visible en desktop + sin borde blanco */
 .tn-partner-popup {
   position: fixed;
-  bottom: 160px; /* suficiente para quedar por encima del grupo wa-fixed */
+  bottom: 160px;
   left: 32px;
   z-index: 490;
   width: 270px;
-  background: #fff;
+  background: #1677ff; /* mismo color que la barra CTA para evitar borde blanco */
   border-radius: 16px;
+  /* FIX 4: sin overflow:hidden para evitar el borde blanco exterior */
   box-shadow: 0 12px 48px rgba(0,0,0,.55), 0 0 0 1px rgba(22,119,255,.18);
-  overflow: hidden;
   transform: translateY(0) scale(1);
   opacity: 1;
   transition: transform .4s cubic-bezier(.23,1,.32,1), opacity .35s;
@@ -350,9 +353,11 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
 }
 .tn-popup-close:hover { background: rgba(0,0,0,.82); transform: scale(1.1); }
 
+/* FIX 1: imagen del popup — siempre visible, con border-radius superior */
 .tn-popup-img {
   width: 100%;
   display: block;
+  border-radius: 16px 16px 0 0;
 }
 
 .tn-popup-cta-bar {
@@ -365,11 +370,12 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   text-decoration: none;
   transition: background .2s;
   cursor: pointer;
+  border-radius: 0 0 16px 16px;
 }
 .tn-popup-cta-bar:hover { background: #0d5bd4; }
 .tn-popup-cta-text {
   font-family: var(--font);
-  font-size: 14px; /* aumentado de 12.5px */
+  font-size: 14px;
   font-weight: 600;
   color: #fff;
   line-height: 1.45;
@@ -449,7 +455,14 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   .hero-cta-arrow{display:none;}
 
   #hero{padding:88px 16px 56px;}
+
+  /* FIX 2 mobile: título hero sin letra cortada */
   .hero-title{font-size:clamp(34px,11vw,54px);letter-spacing:-2px;}
+
+  /* FIX 3: salto de línea mobile — "Tiendanube" sola / "+ Krea" juntos */
+  .hero-title .line:nth-child(2) span .tn-color { display: inline; }
+  .hero-line2-break { display: block; }
+
   .hero-sub{font-size:16px;margin-bottom:28px;}
   .hero-ctas{gap:10px;}
   .hero-ctas .btn{flex:1;min-width:140px;}
@@ -511,10 +524,12 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   }
   .pack{padding:28px 20px;}
   .pack-name{font-size:28px;}
-  /* Profesional aparece primero en mobile */
-  #pack-profesional{order:-1;}
+
+  /* FIX 5: Profesional al centro en mobile (order) */
   #pack-esencial{order:0;}
-  #pack-premium{order:1;}
+  #pack-profesional{order:1;}
+  #pack-premium{order:2;}
+
   /* Indicador swipe */
   .packs-swipe-hint {
     display: flex;
@@ -554,6 +569,12 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
   .tn-partner-popup{width:230px;bottom:124px;left:14px;}
   #scroll-dots{display:none;}
 }
+
+/* FIX 3: .hero-line2-break oculto en desktop */
+@media(min-width:901px){
+  .hero-line2-break { display: none; }
+}
+
 @media(max-width:480px){
   .hero-title{font-size:clamp(30px,12vw,44px);letter-spacing:-1.5px;}
   .tn-stats{gap:1px;}
@@ -584,7 +605,8 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
     <span class="tn-fab-tooltip">¡25% OFF en Tiendanube!</span>
   </button>
 
-  <a href="https://wa.me/5491178294001" target="_blank" class="wa-btn" title="WhatsApp">
+  <!-- FIX 6: WhatsApp con mensaje pre-escrito -->
+  <a href="https://wa.me/5491178294001?text=%C2%A1Hola!%20Me%20contacto%20desde%20la%20web%20Tiendanube%20de%20Krea.%20Necesito%20asesoramiento." target="_blank" class="wa-btn" title="WhatsApp">
     <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
@@ -617,7 +639,8 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
     <div class="hero-badge">Agencia Especialista &middot; E-Commerce</div>
     <h1 class="hero-title">
       <span class="line"><span>Tu tienda en</span></span>
-      <span class="line"><span><em class="tn-color">Tiendanube</em> <em class="acc">+ Krea</em></span></span>
+      <!-- FIX 3: en mobile queda "Tiendanube" / "+ Krea" en líneas separadas -->
+      <span class="line"><span><em class="tn-color">Tiendanube</em><br class="hero-line2-break"> <em class="acc">+ Krea</em></span></span>
       <span class="line"><span>lista para vender.</span></span>
     </h1>
     <p class="hero-sub">Dise&ntilde;amos, configuramos y lanzamos tu tienda en la plataforma de e-commerce m&aacute;s elegida de Latinoam&eacute;rica. Estrategia, dise&ntilde;o y crecimiento en un solo lugar.</p>
@@ -639,7 +662,7 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
       </div>
     </div>
     <div class="hero-stats">
-      <div class="hstat"><div class="hstat-n">+50</div><div class="hstat-l">Tiendas lanzadas</div></div>
+      <div class="hstat"><div class="hstat-n">+20</div><div class="hstat-l">Tiendas lanzadas</div></div>
       <div class="hstat"><div class="hstat-n">+170k</div><div class="hstat-l">Marcas en la plataforma</div></div>
       <div class="hstat"><div class="hstat-n">+350</div><div class="hstat-l">Apps disponibles</div></div>
     </div>
@@ -757,7 +780,7 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
     <h2 class="stitle rv d1">Elegí el plan ideal<br>para tu negocio.</h2>
     <p class="rv d2" style="color:#ccc;font-size:16px;line-height:1.7;margin-top:10px;">Sin contratos de permanencia. Pago único y tu tienda lista para vender.</p>
   </div>
-  <div class="packs-grid rv d1">
+  <div class="packs-grid rv d1" id="packs-grid">
 
     <div class="pack" id="pack-esencial">
       <div>
@@ -866,7 +889,7 @@ footer{background:var(--gray);padding:44px 64px 28px;border-top:1px solid rgba(2
     <span>←</span> deslizá para ver más planes <span>→</span>
   </div>
 
-  <p class="rv d3" style="text-align:center;color:#555;font-size:13px;margin-top:24px;">Todos los packs son pago único &bull; 50% al confirmar &mdash; 50% antes de la entrega &bull; Sin cargos de mantenimiento</p>
+  <p class="rv d3" style="text-align:center;color:#555;font-size:15px;margin-top:24px;">Todos los packs son pago único &bull; 50% al confirmar &mdash; 50% antes de la entrega &bull; Sin cargos de mantenimiento</p>
   <p class="rv d3 tw-advice" data-tw="DE NO SABER QUÉ PLAN ELEGIR, PREGUNTÁ POR CUALQUIERA Y NOSOTROS TE ASESORAMOS" style="text-align:center;color:#ccc;font-size:23px;margin-top:24px;min-height:1.5em;">&nbsp;</p>
 </div>
 </section>
@@ -953,7 +976,7 @@ function togglePack(id, btn) {
         <a href="#" class="soc s-li"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg><span>LinkedIn</span></a>
         <a href="https://www.instagram.com/krea.ag" target="_blank" class="soc s-ig"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg><span>Instagram</span></a>
         <a href="#" class="soc s-fb"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg><span>Facebook</span></a>
-        <a href="https://wa.me/5491178294001" target="_blank" class="soc s-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
+        <a href="https://wa.me/5491178294001?text=%C2%A1Hola!%20Me%20contacto%20desde%20la%20web%20Tiendanube%20de%20Krea.%20Necesito%20asesoramiento." target="_blank" class="soc s-wa"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span>WhatsApp</span></a>
         <a href="mailto:agenciakrea.contacto@gmail.com" class="soc s-em"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Email</span></a>
       </div>
     </div>
@@ -1022,6 +1045,32 @@ function togglePack(id, btn) {
 })();
 
 /* =============================================
+   FIX 5: CARRUSEL PACKS — arrancar en Profesional (centro)
+   ============================================= */
+(function(){
+  function scrollToProfesional() {
+    var grid = document.getElementById('packs-grid');
+    var prof = document.getElementById('pack-profesional');
+    if (!grid || !prof) return;
+    // Solo en mobile (flex scroll)
+    if (window.innerWidth > 900) return;
+    // Calcular offset para centrar el card profesional
+    var gridLeft = grid.getBoundingClientRect().left;
+    var profLeft = prof.getBoundingClientRect().left;
+    var profWidth = prof.offsetWidth;
+    var gridWidth = grid.offsetWidth;
+    var scrollTo = grid.scrollLeft + (profLeft - gridLeft) - (gridWidth / 2) + (profWidth / 2);
+    grid.scrollLeft = scrollTo;
+  }
+  // Ejecutar después de que el layout esté listo
+  if (document.readyState === 'complete') {
+    scrollToProfesional();
+  } else {
+    window.addEventListener('load', scrollToProfesional);
+  }
+})();
+
+/* =============================================
    TYPEWRITER EFFECT
    ============================================= */
 function typeWriter(el, text, speed, onDone) {
@@ -1046,7 +1095,6 @@ var twObserver = new IntersectionObserver(function(entries) {
       var el = e.target;
       var text = el.dataset.tw;
       if (text) {
-        // Delay slightly for slabel/stitle cascade
         var delay = el.classList.contains('d1') ? 200 : el.classList.contains('d2') ? 400 : 0;
         setTimeout(function() {
           typeWriter(el, text, 38);
@@ -1058,7 +1106,7 @@ var twObserver = new IntersectionObserver(function(entries) {
 }, { threshold: 0.4 });
 
 document.querySelectorAll('[data-tw]').forEach(function(el) {
-  el.textContent = '\u00a0'; // placeholder para mantener altura
+  el.textContent = '\u00a0';
   twObserver.observe(el);
 });
 
